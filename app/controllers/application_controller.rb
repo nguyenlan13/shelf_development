@@ -1,3 +1,4 @@
+# require './config/env'
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -10,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
 
   get '/' do
-    erb :index
+      erb :index
   end
 
 end
