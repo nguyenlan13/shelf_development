@@ -9,10 +9,11 @@ class SessionsController < ApplicationController
     if user.save
       session[:user_id] = user.id
     end
-    erb :'member/home'
+      redirect '/member'
   end
   
   get '/login' do
+    @failed = false
     erb :'sessions/login'
   end
 
@@ -21,8 +22,9 @@ class SessionsController < ApplicationController
     # binding.pry
     if !!user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      erb :'member/home'
+      redirect '/member'
     else
+      @failed = true
       erb :'sessions/login'
     end
   end
