@@ -1,10 +1,14 @@
+<h2>Create An Account</h2>
 <form method="post" action="/signup">
-<label for="username">Username: </label>
-<input type="text" name="username">
+<label for="user[name]">Please Enter Your Name: </label>
+<input type="text" name="user[name]" id="user[name]">
 <br>
-<label for="password">Password: </label>
-<input type="password" name="password">
-<input type="submit" value="Login">
+<label for="user[username]">Please Choose a Username: </label>
+<input type="text" name="user[username]" id="user[username]">
+<br>
+<label for="user[password]">Please Choose a Password: </label>
+<input type="password" name="user[password]" id="user[password]">
+<input type="submit" value="Create Account">
 
 
 </form>
