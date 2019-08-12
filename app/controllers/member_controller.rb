@@ -1,7 +1,13 @@
 class MemberController < ApplicationController
 
   get '/member' do
-    erb :'member/home'
+    if logged_in?
+      erb :'member/home'
+    else
+      redirect '/login'
+    end
   end
+
+  
 
 end
