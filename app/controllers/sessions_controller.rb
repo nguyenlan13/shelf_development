@@ -1,15 +1,18 @@
 class SessionsController < ApplicationController
   
+ 
   get '/signup' do
     erb :'sessions/signup'
   end
+
 
   post '/signup' do
     user = User.new(params[:user])
     if user.save
       session[:user_id] = user.id
+     
     end
-      redirect '/member'
+    redirect '/member'
   end
   
   get '/login' do
@@ -28,9 +31,5 @@ class SessionsController < ApplicationController
       erb :'sessions/login'
     end
   end
-
-
-
-
 end
 
