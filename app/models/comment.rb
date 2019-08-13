@@ -1,8 +1,7 @@
 class Comment < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :commentable, polymorphic: true
 
-  # belongs_to :user
-  # belongs_to :commentable, polymorphic: true
-
-  # has_many :comments, as: commentable
-  # has many :reactions, as: reactable
+  has_many :comments, as: :commentable
+  has_many :reactions, as: :reactable
 end

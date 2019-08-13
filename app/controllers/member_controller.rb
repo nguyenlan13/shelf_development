@@ -5,6 +5,13 @@ class MemberController < ApplicationController
     erb :'member/home'
   end
 
+  get '/share' do
+    erb :'member/share'
+  end
+
+
+
+
 
 
 end

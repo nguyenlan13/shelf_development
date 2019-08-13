@@ -32,15 +32,15 @@ comment
 reaction
 -belongs to a user
 -belongs to reactable, polymorphic: true
--has many reactions, as reactable*
+
 
 rating
 -belongs to a user
--belongs to a book
+<!-- -belongs to a book, article, podcast -->
 
 fave_quote
 -belongs to a user
--belongs to a book
+<!-- -belongs to a book, article, podcast -->
 
 user
 -has many comments

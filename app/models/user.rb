@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :username, uniqueness: true
   validates :password, length: {in: 8..20}, confirmation: true, unless: ->(u){ u.password.blank? }
+
+  has_many :comments
+  has_many :ratings
+  has_many :reactions
+  has_many :fave_quotes
+
 end

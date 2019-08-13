@@ -2,13 +2,16 @@
 <form method="post" action="/signup">
 <label for="user[name]">Please Enter Your Name: </label>
 <input type="text" name="user[name]" id="user[name]">
-<br>
+<br/>
 <label for="user[username]">Please Choose a Username: </label>
 <input type="text" name="user[username]" id="user[username]">
-<br>
+<br/>
 <label for="user[password]">Please Choose a Password: </label>
 <input type="password" name="user[password]" id="user[password]">
-<br>
+<br/>
+<% if @failed %>
+  <p class="warning">Your password does not meet the requirement.</p>
+<% end %>
 <input type="submit" value="Create Account">
 
 
