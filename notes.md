@@ -1,29 +1,21 @@
-user has many posts
-comments belongs to a user
-rating belongs to a user
-post has many comments
-fave_quotes belong to a user
-
-
-
 
 
 book
--has many discussions through a user
+-has many comments through a user
 -has many ratings through a user
--has many fave quotes through a user
+-has many fave_quotes through a user
 -belongs to an author
 
 podcast
--has many discussions through a user
+-has many comments through a user
 -has many ratings through a user
--has many fave quotes through a user
+-has many fave_quotes through a user
 -belongs to an author
 
 article
--has many discussions through a user
+-has many comments through a user
 -has many ratings through a user
--has many fave quotes through a user
+-has many fave_quotes through a user
 -belongs to an author
 
 author
@@ -31,23 +23,27 @@ author
 -has many podcasts
 -has many articles
 
-discussion
+comment
 -belongs to user
--belongs to discussable, polymorphic: true
--has many discussions, as discussable
+-belongs to commentable, polymorphic: true
+-has many comments, as commentable
 -has many reactions, as reactable
 
 reaction
 -belongs to a user
 -belongs to reactable, polymorphic: true
--has many reactions, as reactable
+-has many reactions, as reactable*
 
 rating
 -belongs to a user
 -belongs to a book
 
+fave_quote
+-belongs to a user
+-belongs to a book
+
 user
--has many discussions
+-has many comments
 -has many ratings
--has reactions
--has many fave quotes
+-has many reactions
+-has many fave_quotes

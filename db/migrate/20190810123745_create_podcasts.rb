@@ -2,8 +2,9 @@ class CreatePodcasts < ActiveRecord::Migration[5.2]
   def change
     create_table :podcasts do |t|
       t.string :title
-      t.string :hosts
+      t.string :authors
       t.integer :year
+      t.string :source
     end
   end
 end
