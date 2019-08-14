@@ -2,21 +2,21 @@
 -be able to add another book, podcast, or article
 
 book
--has many comments
--has many ratings
--has many fave_quotes
+-has many comments, as commentable
+-has many ratings, as ratable
+-has many fave_quotes, as quotable
 -belongs to an author
 
 podcast
--has many comments
--has many ratings
--has many fave_quotes
+-has many comments, as commentable
+-has many ratings, as ratable
+-has many fave_quotes, as quotable
 -belongs to an author
 
 article
--has many comments
--has many ratings
--has many fave_quotes
+-has many comments, as commentable
+-has many ratings, as ratable
+-has many fave_quotes, as quotable
 -belongs to an author
 
 author
