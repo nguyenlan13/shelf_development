@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
   create_table "articles", force: :cascade do |t|
     t.integer "author_id"
     t.string "title"
-    t.string "authors"
     t.integer "year"
     t.string "source"
   end
@@ -27,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
   create_table "books", force: :cascade do |t|
     t.integer "author_id"
     t.string "title"
-    t.string "authors"
     t.string "year"
   end
 
@@ -44,12 +42,14 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
   create_table "fave_quote", force: :cascade do |t|
     t.integer "user_id"
     t.text "quote"
+    t.string "quotable_type"
+    t.integer "quotable_id"
+    t.index ["quotable_type", "quotable_id"], name: "index_fave_quote_on_quotable_type_and_quotable_id"
   end
 
   create_table "podcasts", force: :cascade do |t|
     t.integer "author_id"
     t.string "title"
-    t.string "authors"
     t.integer "year"
     t.string "source"
   end
@@ -57,15 +57,19 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
   create_table "ratings", force: :cascade do |t|
     t.integer "user_id"
     t.integer "rate"
+    t.string "ratable_type"
+    t.integer "ratable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ratable_type", "ratable_id"], name: "index_ratings_on_ratable_type_and_ratable_id"
   end
 
   create_table "reactions", force: :cascade do |t|
     t.integer "user_id"
-    t.string "reactable_type"
-    t.integer "reactable_id"
+    t.integer "comment_id"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["reactable_type", "reactable_id"], name: "index_reactions_on_reactable_type_and_reactable_id"
   end
 
   create_table "users", force: :cascade do |t|

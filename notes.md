@@ -1,21 +1,22 @@
-
+-add search function
+-be able to add another book, podcast, or article
 
 book
--has many comments through a user
--has many ratings through a user
--has many fave_quotes through a user
+-has many comments
+-has many ratings
+-has many fave_quotes
 -belongs to an author
 
 podcast
--has many comments through a user
--has many ratings through a user
--has many fave_quotes through a user
+-has many comments
+-has many ratings
+-has many fave_quotes
 -belongs to an author
 
 article
--has many comments through a user
--has many ratings through a user
--has many fave_quotes through a user
+-has many comments
+-has many ratings
+-has many fave_quotes
 -belongs to an author
 
 author
@@ -31,15 +32,17 @@ comment
 
 reaction
 -belongs to a user
--belongs to reactable, polymorphic: true
+-belongs to comment, polymorphic: true
 
 
 rating
 -belongs to a user
+-belongs to ratable, polymorphic: true
 <!-- -belongs to a book, article, podcast -->
 
 fave_quote
 -belongs to a user
+-belongs to quotable, polymorphic: true
 <!-- -belongs to a book, article, podcast -->
 
 user
