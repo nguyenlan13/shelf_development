@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
     t.string "title"
     t.integer "year"
     t.string "source"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "authors", force: :cascade do |t|
@@ -27,6 +29,8 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
     t.integer "author_id"
     t.string "title"
     t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -39,19 +43,24 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
-  create_table "fave_quote", force: :cascade do |t|
+  create_table "fave_quotes", force: :cascade do |t|
     t.integer "user_id"
     t.text "quote"
     t.string "quotable_type"
     t.integer "quotable_id"
-    t.index ["quotable_type", "quotable_id"], name: "index_fave_quote_on_quotable_type_and_quotable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quotable_type", "quotable_id"], name: "index_fave_quotes_on_quotable_type_and_quotable_id"
   end
 
   create_table "podcasts", force: :cascade do |t|
     t.integer "author_id"
-    t.string "title"
+    t.string "name"
+    t.string "episode_title"
     t.integer "year"
     t.string "source"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -76,6 +85,8 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
     t.string "name"
     t.string "username"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

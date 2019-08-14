@@ -1,5 +1,8 @@
 -add search function
 -be able to add another book, podcast, or article
+-upcase everything ?
+-validate everything
+
 
 book
 -has many comments, as commentable
