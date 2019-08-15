@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
  
   get '/signup' do
     if logged_in?
-      redirect '/member'
+      redirect '/user'
       return
     end
     
@@ -14,13 +14,13 @@ class SessionsController < ApplicationController
 
   post '/signup' do
     if logged_in?
-      redirect '/member'
+      redirect '/user'
       return
     end
     user = User.new(params[:user])
     if user.save
       session[:user_id] = user.id
-      redirect '/member'
+      redirect '/user'
     else
       @failed = true
       erb :'sessions/signup'
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
   
   get '/login' do
     if logged_in?
-      redirect '/member'
+      redirect '/user'
       return
     end
     @failed = false
@@ -42,7 +42,7 @@ class SessionsController < ApplicationController
     if !!user && user.authenticate(params[:password])
       session[:user_id] = user.id
       session[:name] = user.name
-      redirect '/member'
+      redirect '/user'
     else
       @failed = true
       erb :'sessions/login'

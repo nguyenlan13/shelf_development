@@ -10,8 +10,10 @@
 <body>
 <h1>Shelf Development</h1>
   <%= yield%>
+  <br/>
+  <br/>
 <% if logged_in? %>
-  <h4><a href="/logout">Logout</a></h4>
+  <h5><a href="/logout">Logout</a></h5>
   <% end %>
 </body>
 </html>

@@ -5,7 +5,7 @@ require_relative './config/env'
 
 use Rack::MethodOverride
 use SessionsController
-use MemberController
+use UserController
 use BookController
 use PodcastController
 use ArticleController
