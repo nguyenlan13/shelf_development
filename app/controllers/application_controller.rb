@@ -8,9 +8,17 @@ class ApplicationController < Sinatra::Base
   end
 
 
-
   get '/' do
-      erb :index
+    if logged_in?
+      redirect '/member'
+      return
+    end
+    erb :index
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
   end
 
 
@@ -21,7 +29,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find_by(id: sessions[:user_id])
+      User.find_by(id: session[:user_id])
     end
 
     def authenticate

@@ -1,0 +1,30 @@
+<h3>Add an article to our Shelf:</h3>
+<form method="post" action="/add-article">
+<label for="article[title]">Title: </label>
+<br/>
+<input type="text" name="article[title]" id="article[title]">
+<br/>
+<br/>
+<label for="article[authors]">Author(s): </label>
+<br/>
+<input type="text" name="article[authors]" id="article[authors]">
+<br/>
+<br/>
+<label for="article[year]">Year: </label>
+<br/>
+<input type="number" name="article[year]" id="article[year]">
+<br/>
+<br/>
+<label for="article[source]">Link to article: </label>
+<br/>
+<input type="string" name="article[source]" id="article[source]">
+<br/>
+<br/>
+// <% if @failed %>
+//   <p class="warning">This article is already in the library.</p>
+// <% end %>
+
+<input type="submit" value="Add Article">
+
+
+</form>

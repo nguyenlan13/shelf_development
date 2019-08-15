@@ -1,17 +1,24 @@
 <h3>Add a book to our Shelf:</h3>
 <form method="post" action="/add-book">
 <label for="book[title]">Title: </label>
+<br/>
 <input type="text" name="book[title]" id="book[title]">
 <br/>
+<br/>
 <label for="book[authors]">Author Name(s): </label>
+<br/>
 <input type="text" name="book[authors]" id="book[authors]">
 <br/>
+<br/>
 <label for="book[year]">Year: </label>
+<br/>
 <input type="number" name="book[year]" id="book[year]">
+<br/>
 <br/>
 // <% if @failed %>
 //   <p class="warning">This book is already in the library.</p>
 // <% end %>
+
 <input type="submit" value="Add Book">
 
 

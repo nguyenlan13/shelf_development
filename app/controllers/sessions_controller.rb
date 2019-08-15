@@ -2,12 +2,21 @@ class SessionsController < ApplicationController
   
  
   get '/signup' do
+    if logged_in?
+      redirect '/member'
+      return
+    end
+    
     @failed = false
     erb :'sessions/signup'
   end
 
 
   post '/signup' do
+    if logged_in?
+      redirect '/member'
+      return
+    end
     user = User.new(params[:user])
     if user.save
       session[:user_id] = user.id
@@ -19,6 +28,10 @@ class SessionsController < ApplicationController
   end
   
   get '/login' do
+    if logged_in?
+      redirect '/member'
+      return
+    end
     @failed = false
     erb :'sessions/login'
   end
@@ -28,11 +41,13 @@ class SessionsController < ApplicationController
     # binding.pry
     if !!user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      session[:name] = user.name
       redirect '/member'
     else
       @failed = true
       erb :'sessions/login'
     end
   end
+
 end
 

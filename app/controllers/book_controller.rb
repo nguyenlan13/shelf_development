@@ -1,6 +1,7 @@
 class BookController < ApplicationController
 
   get '/add-book' do
+    authenticate
     erb :'book/add'
   end
 

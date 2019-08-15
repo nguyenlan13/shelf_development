@@ -12,5 +12,4 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_many :reactions
   has_many :fave_quotes
-
 end

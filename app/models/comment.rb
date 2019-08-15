@@ -3,5 +3,5 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, polymorphic: true
 
   has_many :comments, as: :commentable
-  has_many :reactions, as: :reactable
+  has_many :reactions
 end

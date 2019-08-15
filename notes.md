@@ -1,7 +1,36 @@
+
+/books/
+  /books/add
+  /books/view/:id
+    get '/books/view/:id' do
+
+    end
+  /books/view/:id/comments
+
+
+/user/
+  /user/view/:user_id
+  /user/view/:user_id/comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -add search function
 -be able to add another book, podcast, or article
 -upcase everything ?
 -validate everything
+-create a logout
+-while loop to get all the comments and -replies to comments
 
 
 book
