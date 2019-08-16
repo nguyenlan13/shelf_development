@@ -15,11 +15,19 @@
 <input type="number" name="book[year]" id="book[year]">
 <br/>
 <br/>
-// <% if @failed %>
-//   <p class="warning">This book is already in the library.</p>
-// <% end %>
+<% if @duplicate %>
+  <p class="warning">This book is already in the library. Please select from list.</p>
+<% end %>
 
 <input type="submit" value="Add Book">
 
 </form>
 
+
+<br/>
+<h2>Books in Library:</h2>
+
+<% @books.each do |book| %>
+
+<%= erb :'book/_books', locals: {book: book}%>
+<% end %>

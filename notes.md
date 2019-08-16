@@ -17,6 +17,7 @@
 
 
 
+
 -add search function
 -be able to add another book, podcast, or article
 -upcase everything ?
@@ -25,6 +26,8 @@
 -while loop to get all the comments and -replies to comments
 -error pages
 -add some css to distinguish comments and medias
+sort books alphabetically
+
 
 
 book
