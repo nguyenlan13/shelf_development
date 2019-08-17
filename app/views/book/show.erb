@@ -1,1 +1,7 @@
-hello
+<%%= @book.title %>
+<br/>
+<a href="/authors/<%= @book.author.id %>"><%= @book.author.name %></a>
+<br/>
+<%= @book.year %>
+
+

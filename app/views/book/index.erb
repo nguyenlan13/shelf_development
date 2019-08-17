@@ -1,0 +1,10 @@
+<br/>
+
+  <h2>Books in Library:</h2>
+
+  <% @books.sort_by{|book| book[:title]}.each do |book| %>
+
+  <%= erb :'book/_books', locals: {book: book}%>
+
+  <% end %>
+
