@@ -1,11 +1,11 @@
 class PodcastController < ApplicationController
 
-  get '/podcasts/add' do
+  get '/podcasts/new' do
     authenticate
-    erb :'podcast/add'
+    erb :'podcast/new'
   end
 
-  post '/podcasts/add' do
+  post '/podcasts/new' do
     a = Author.find_or_create_by(name: params[:name])
     podcast = Podcast.new(name: params[:name], episode_title: params[:episode_title], year: params[:year], source: params[:source], author: a)
     # if podcast.save

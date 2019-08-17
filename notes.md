@@ -26,7 +26,7 @@
 -while loop to get all the comments and -replies to comments
 -error pages
 -add some css to distinguish comments and medias
-sort books alphabetically
+-sort books alphabetically
 
 
 

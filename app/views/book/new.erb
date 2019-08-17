@@ -1,13 +1,13 @@
 <h3>Add a book to our Shelf:</h3>
-<form method="post" action="/books/add">
+<form method="post" action="/books/new">
 <label for="book[title]">Title: </label>
 <br/>
 <input type="text" name="book[title]" id="book[title]">
 <br/>
 <br/>
-<label for="book[authors]">Author Name(s): </label>
+<label for="book[author]">Author Name(s): </label>
 <br/>
-<input type="text" name="book[authors]" id="book[authors]">
+<input type="text" name="book[author]" id="book[author]">
 <br/>
 <br/>
 <label for="book[year]">Year: </label>
@@ -15,7 +15,7 @@
 <input type="number" name="book[year]" id="book[year]">
 <br/>
 <br/>
-<% if @duplicate %>
+<% if !!@duplicate %>
   <p class="warning">This book is already in the library. Please select from list.</p>
 <% end %>
 
@@ -27,7 +27,7 @@
 <br/>
 <h2>Books in Library:</h2>
 
-<% @books.each do |book| %>
+<% @books.sort.each do |book| %>
 
 <%= erb :'book/_books', locals: {book: book}%>
 <% end %>

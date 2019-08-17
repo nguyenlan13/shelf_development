@@ -1,11 +1,11 @@
 class ArticleController < ApplicationController
 
-  get '/articles/add' do
+  get '/articles/new' do
     authenticate
-    erb :'article/add'
+    erb :'article/new'
   end
 
-  post '/articles/add' do
+  post '/articles/new' do
     a = Author.find_or_create_by(name: params[:name])
     article = Article.new(title: params[:title], year: params[:year], source: params[:source], author: a)
     # if article.save

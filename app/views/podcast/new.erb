@@ -1,5 +1,5 @@
 <h3>Add a podcast to our Shelf:</h3>
-<form method="post" action="/podcasts/add">
+<form method="post" action="/podcasts/new">
 <label for="podcast[name]">Podcast Name: </label>
 <br/>
 <input type="text" name="podcast[name]" id="podcast[name]">
@@ -25,8 +25,8 @@
 <input type="string" name="podcast[source]" id="podcast[source]">
 <br/>
 <br/>
-// <% if @failed %>
-//   <p class="warning">This podcast is already in the library.</p>
+// <% if @duplicate %>
+//   <p class="warning">This podcast is already in the library. Please choose from list.</p>
 // <% end %>
 
 <input type="submit" value="Add podcast">

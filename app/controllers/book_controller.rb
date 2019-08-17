@@ -1,46 +1,44 @@
 class BookController < ApplicationController
 
   
-  get '/books/add' do
+  get '/books/new' do
     authenticate
     @books = Book.all
-    erb :'book/add'
+    erb :'book/new'
   end
 
-  post '/books/add' do
-    author = Author.find_or_create_by(name: params[:name])
-    book = Book.find_by(title: params[:title], year: params[:year], author: author)
-    if book
+  post '/books/new' do
+    authenticate
+    book_params = params[:book]
+    author = Author.find_or_create_by(name: book_params[:author])
+    book = Book.find_by(title: book_params[:title], year: book_params[:year], author: author)
+  #  binding.pry
+    if !book.nil?
+      #need to fix this so it doesnt show up everytime
       @duplicate = true
-      erb :'book/add'
+      @books = Book.all
+      erb :'book/new'
     else
-      book = Book.create(title: params[:title], year: params[:year], author: author)
+      book = Book.create(title: book_params[:title], year: book_params[:year], author: author)
       redirect '/books/#{book.id}'
     end
   end
 
 
-  get 'books/:id' do
+  get '/books/:id' do
     authenticate
+    book = book.id
+
+
+
+    # erb :'book/show'
     
-
-
-
   end
 
-  # if !book
-    #   book = Book.new(title: params[:title], year: params[:year], author: author.name)
-    # book.save
-      #if book is saved, add another book or start discussion
+  post '/books/:id/comments' do
+    user = current_user
+    @comment = Comment.new(user: user, content: params[:content], commentable: params[:commentable])
 
-
-
-  # get '/books/view'
-  #   authenticate
-  #   @books = Book.all
-  #   erb :'book/show'  
-  # end
-
-  # get 'books/view/:d'
-
+    erb :'book/comments'
+  end
 end
