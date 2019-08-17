@@ -1,7 +1,10 @@
-<%%= @book.title %>
+<%= @book.title %>
 <br/>
 <a href="/authors/<%= @book.author.id %>"><%= @book.author.name %></a>
 <br/>
 <%= @book.year %>
+<br/>
+<br/>
 
+  <%= erb :'comment/_comments'%>
 
