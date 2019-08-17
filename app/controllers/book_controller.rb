@@ -35,15 +35,12 @@ class BookController < ApplicationController
 
   get '/books/:id' do
     authenticate
-
     @book = Book.find_by(id: params[:id])
-    if !@book
-      redirect "/books"
-      return
-    end
+    # if !@book
+    #   redirect "/books"
+    #   return
+    # end
     @author = Author.find_by(id: @book.author.id)
-
-    #book = book.id
     erb :'book/show'
   end
 
