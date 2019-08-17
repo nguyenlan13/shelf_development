@@ -13,7 +13,7 @@ class BookController < ApplicationController
     author = Author.find_or_create_by(name: book_params[:author])
     book = Book.find_by(title: book_params[:title], year: book_params[:year], author: author)
   #  binding.pry
-    if !book.nil?
+    if book
       #need to fix this so it doesnt show up everytime
       @duplicate = true
       @books = Book.all
