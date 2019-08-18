@@ -53,17 +53,16 @@ class BookController < ApplicationController
   post '/books/:id/comments' do
     user = current_user
     @book = Book.find_by(id: params[:id])
-  
     @comment = Comment.create(user: user, content: params[:comment][:content], commentable: @book)
-
     redirect "/books/#{@book.id}/comments/#{@comment.id}"
   end
 
   get '/books/:id/comments/:comment_id' do
     authenticate
+    @user = current_user
     @book = Book.find_by(id: params[:id])
     @comment = Comment.find_by(commentable: @book)
-     erb :'comment/show'
+    erb :'comment/show'
   end
 
 end
