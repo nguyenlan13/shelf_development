@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
       redirect '/home'
       return
     end
-    erb :index
+    erb :'index'
   end
 
   get '/logout' do
