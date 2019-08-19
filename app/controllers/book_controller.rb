@@ -50,28 +50,28 @@ class BookController < ApplicationController
 
 ##COMMENTS - polymorphic
 
-	get '/books/:id/comments/new' do
-		authenticate
-		@commentable = Book.find_by(id: params[:id])
-		erb :'comment/new'
-	end
+	# get '/books/:id/comments/new' do
+	# 	authenticate
+	# 	@commentable = Book.find_by(id: params[:id])
+	# 	erb :'comment/new'
+	# end
 
-	post '/books/:id/comments' do
-		authenticate
-		user = current_user
-		@commentable_type = "books"
-		@commentable = Book.find_by(id: params[:id])
-		@comment = Comment.create(user: user, content: params[:comment][:content], commentable: @commentable)
-		redirect "/#{@commentable_type}/#{@commentable.id}"
-	end
+	# post '/books/:id/comments' do
+	# 	authenticate
+	# 	user = current_user
+	# 	@commentable_type = "books"
+	# 	@commentable = Book.find_by(id: params[:id])
+	# 	@comment = Comment.create(user: user, content: params[:comment][:content], commentable: @commentable)
+	# 	redirect "/#{@commentable_type}/#{@commentable.id}"
+	# end
 
-	get '/books/:id/comments/:comment_id' do
-		authenticate
-		@user = current_user
-		@commentable = Book.find_by(id: params[:id])
-		@comment = Comment.find_by(id: params[:comment_id], commentable: @commentable)
-		erb :'comment/show'
-	end
+	# get '/books/:id/comments/:comment_id' do
+	# 	authenticate
+	# 	@user = current_user
+	# 	@commentable = Book.find_by(id: params[:id])
+	# 	@comment = Comment.find_by(id: params[:comment_id], commentable: @commentable)
+	# 	erb :'comment/show'
+	# end
 
 ##RATINGS - polymorphic
 
