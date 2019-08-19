@@ -20,9 +20,9 @@
 <input type="string" name="article[source]" id="article[source]">
 <br/>
 <br/>
-// <% if @failed %>
-//   <p class="warning">This article is already in the library.</p>
-// <% end %>
+<% if @duplicate %>
+  <p class="warning">This article is already in the library. Please choose from list.</p>
+<% end %>
 
 <input type="submit" value="Add Article">
 

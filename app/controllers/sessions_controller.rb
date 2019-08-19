@@ -37,11 +37,11 @@ class SessionsController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username])
     # binding.pry
-    if !!user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      session[:name] = user.name
+    if !!@user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      session[:name] = @user.name
       redirect '/home'
     else
       @failed = true
