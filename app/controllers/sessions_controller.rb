@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       redirect '/home'
       return
     end
-    
+    @user = User.new
     @failed = false
     erb :'sessions/signup'
   end
@@ -17,9 +17,9 @@ class SessionsController < ApplicationController
       redirect '/home'
       return
     end
-    user = User.new(params[:user])
-    if user.save
-      session[:user_id] = user.id
+    @user = User.new(params[:user])
+    if @user.save
+      session[:user_id] = @user.id
       redirect '/home'
     else
       @failed = true
