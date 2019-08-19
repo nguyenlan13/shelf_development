@@ -1,22 +1,25 @@
-<%= @book.title %>
+<h3><div>Title: <%=h @book.title %>
 <br/>
-<a href="/authors/<%= @book.author.id %>"><%= @book.author.name %></a>
+Author: <a href="/authors/<%= @book.author.id %>"><%=h @book.author.name %></a>
 <br/>
-<%= @book.year %>
+Year: <%= @book.year %>
+<br/>
+Stars: <%= @avg_rating %>
+</div></h3>
 <br/>
 <br/>
-<%= erb :'rating/_ratings', locals: {ratable: @book} %>
+<%= erb :'rating/_ratings', locals: {ratable: @book, ratable_type: "books"} %>
 
 <br/>
 <br/>
 
 
 <div>
-  <h2>Comments:</h2>
+  <h3>Trending:</h3>
 
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-     <%= comment.user.name %>: <%= comment.content %>
+     <%=h comment.user.name %>: <%=h comment.content %>
     <h6><%= comment.created_at %></h6>
     <br/>
   </div>
@@ -24,5 +27,5 @@
   <br/>
 </div>
 
-  <%= erb :'comment/_comments', locals: {commentable: @book}%>
+  <%= erb :'comment/_comments', locals: {commentable: @book, commentable_type: @commentable_type}%>
 
