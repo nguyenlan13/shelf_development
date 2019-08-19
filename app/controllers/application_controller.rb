@@ -21,6 +21,16 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
+  not_found do
+    'This is nowhere to be found.'
+  end
+
+  error ActiveRecord::RecordNotFound do
+    status 404
+    'This is nowhere to be found.'
+  end
+    
+  
 
   helpers do
 
@@ -36,6 +46,12 @@ class ApplicationController < Sinatra::Base
       if !logged_in?
         redirect '/login'
       end
+    end
+
+    
+
+    def h(text)
+      Rack::Utils.escape_html(text)
     end
 
   end
