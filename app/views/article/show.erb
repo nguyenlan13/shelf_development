@@ -1,0 +1,32 @@
+<h3><div>Title: <%=h @article.title %>
+<br/>
+Author: <a href="/authors/<%= @article.author.id %>"><%=h @article.author.name %></a>
+<br/>
+Year: <%= @article.year %>
+<br/>
+Source: <%= @article.source %>
+<br/>
+Stars: <%= @avg_rating %>
+</div></h3>
+<br/>
+<br/>
+<%= erb :'rating/_ratings', locals: {ratable: @article, ratable_type: "articles"} %>
+
+<br/>
+<br/>
+
+
+<div>
+  <h3>Trending:</h3>
+
+  <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
+  <div>
+     <%=h comment.user.name %>: <%=h comment.content %>
+    <h6><%= comment.created_at %></h6>
+    <br/>
+  </div>
+  <% end %>
+  <br/>
+</div>
+
+  <%= erb :'comment/_comments', locals: {commentable: @article, commentable_type: @commentable_type}%>

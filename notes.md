@@ -16,7 +16,7 @@
 
 
 
-
+-change source input type to url
 -add a go back to home page
 -add search function
 -be able to add another book, podcast, or article
