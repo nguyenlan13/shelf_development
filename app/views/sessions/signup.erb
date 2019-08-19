@@ -1,7 +1,7 @@
 <h2>Create An Account</h2>
 <form method="post" action="/signup">
 <label for="user[name]">Please Enter Your Name: </label>
-<input type="text" name="user[name]" id="user[name]">
+<input type="text" name="user[name]" id="user[name]" value="<%= @user.name%>">
 <br/>
 <label for="user[username]">Please Choose a Username: </label>
 <input type="text" name="user[username]" id="user[username]">
@@ -10,9 +10,17 @@
 <input type="password" name="user[password]" id="user[password]">
 <br/>
 <% if @failed %>
-  <p class="warning">Your password does not meet the requirement.</p>
+  <div class="warning"><ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
 <% end %>
 <input type="submit" value="Create Account">
 
 
 </form>
+
+<h5>already have an account?</h5>
+<h4><a href="/login">Member Log In</a></h4>

@@ -9,5 +9,6 @@ use UserController
 use BookController
 use PodcastController
 use ArticleController
+use RatingController
 
 run ApplicationController
