@@ -1,0 +1,10 @@
+<h3>Favorite Quotes: </h3>
+<form method="post" action="/fave_quotes">
+<input type="hidden" name="fave_quote[quotable_type]" value="<%= quotable.class.name%>">
+<input type="hidden" name="fave_quote[quotable_id]" value="<%= quotable.id%>">
+<input type="hidden" name="fave_quote[quote_path]" value="<%= quotable_type%>">
+<textarea name="fave_quote[quote]" placeholder="Type here"></textarea>
+<br/>
+<br/>
+   <input type="submit" value="Submit">
+</form>
