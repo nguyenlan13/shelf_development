@@ -1,5 +1,7 @@
 class RatingController < ApplicationController
 
+  ##RATINGS - polymorphic
+  
 	post '/ratings' do
 		authenticate
     user = current_user
