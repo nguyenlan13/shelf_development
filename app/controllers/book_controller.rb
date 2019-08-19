@@ -32,19 +32,23 @@ class BookController < ApplicationController
 
 	get '/books/:id' do
 		authenticate
-		@book = Book.find_by(id: params[:id])
+		@book = Book.find(params[:id])
 		if !@book
 			redirect "/books"
 			return
 		end
-		@author = Author.find_by(id: @book.author.id)
-		@comments = Comment.where(commentable: @book).all
-		@rating = Rating.where(ratable: @book)
+		@author = @book.author
+		@comments = @book.comments
+		@ratings = @book.ratings
+		@commentable_type = "books"
+		@ratable_type = "books"
+		@avg_rating = @ratings.average(:rate)
+		# binding.pry
 		erb :'book/show'
 	end
 
 
-##COMMENTS
+##COMMENTS - polymorphic
 
 	get '/books/:id/comments/new' do
 		authenticate
@@ -69,30 +73,24 @@ class BookController < ApplicationController
 		erb :'comment/show'
 	end
 
-##RATINGS
+##RATINGS - polymorphic
 
-	get 'books/:id/ratings/new' do
-		authenticate
-		@ratable = Book.find_by(id: params[:id])
-		erb :'rating/new'
-	end
+	# get 'books/:id/ratings/new' do
+	# 	authenticate
+	# 	@ratable = Book.find_by(id: params[:id])
+	# 	erb :'rating/new'
+	# end
 
-	post '/books/:id/ratings' do
-		authenticate
-		user = current_user
-		@ratable_type = "books"
-		@ratable = Book.find_by(id: params[:id])
-		@rating = Rating.create(user: user, content: params[:rating][:rate], ratable: @ratable)
-		redirect "/#{@ratable_type}/#{@ratable.id}"
-	end
 
-	get '/books/:id/ratings/:rating_id' do
-		authenticate
-		@user = current_user
-		@ratable = Book.find_by(id: params[:id])
-		@rating = Rating.find_by(id: params[:rating_id], ratable: @ratable)
-		erb :'rating/show'
-	end
+
+	# get '/books/:id/ratings/:rating_id' do
+	# 	authenticate
+	# 	@user = current_user
+	# 	@ratable = Book.find_by(id: params[:id])
+	# 	@rating = Rating.find_by(id: params[:rating_id], ratable: @ratable)
+	# 	# @avg_rating = @ratable.ratings.average(:rate)
+	# 	erb :'rating/show'
+	# end
 
 
 
