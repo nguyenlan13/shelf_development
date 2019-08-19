@@ -18,7 +18,6 @@ class BookController < ApplicationController
 		book_params = params[:book]
 		author = Author.find_or_create_by(name: book_params[:author])
 		book = Book.find_by(title: book_params[:title], year: book_params[:year], author: author)
-		# binding.pry
 		if book
 			@duplicate = true
 			@books = Book.all
@@ -41,9 +40,9 @@ class BookController < ApplicationController
 		@comments = @book.comments
 		@ratings = @book.ratings
 		@commentable_type = "books"
+		@quotable_type = "books"
 		@ratable_type = "books"
 		@avg_rating = @ratings.average(:rate)
-		# binding.pry
 		erb :'book/show'
 	end
 
