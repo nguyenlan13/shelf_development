@@ -10,5 +10,8 @@ use BookController
 use PodcastController
 use ArticleController
 use RatingController
+use CommentController
+use FaveQuoteController
+use ReactionController
 
 run ApplicationController

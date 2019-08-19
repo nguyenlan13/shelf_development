@@ -17,17 +17,17 @@
 
 
 
-
+-add a go back to home page
 -add search function
 -be able to add another book, podcast, or article
 -upcase everything ?
 -validate everything
--create a logout
+-create a logout--DONE
 -while loop to get all the comments and -replies to comments
--error pages
+-error pages--DONE
 -add some css to distinguish comments and medias
 -sort books alphabetically--DONE
--avg rating 
+-avg rating--DONE
 
 
 
