@@ -1,5 +1,5 @@
-<h3>Add a comment:</h3>
-<form method="post" action="/books/<%= @book.id %>/comments">
+<h4>Add a comment:</h4>
+<form method="post" action="/'<%= @commentable_type%>'/<%= commentable.id %>/comments">
 <textarea name="comment[content]" placeholder="Type here"></textarea>
 <br/>
 <br/>

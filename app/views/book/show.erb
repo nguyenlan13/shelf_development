@@ -5,6 +5,24 @@
 <%= @book.year %>
 <br/>
 <br/>
+<%= erb :'rating/_ratings', locals: {ratable: @book} %>
 
-  <%= erb :'comment/_comments'%>
+<br/>
+<br/>
+
+
+<div>
+  <h2>Comments:</h2>
+
+  <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
+  <div>
+     <%= comment.user.name %>: <%= comment.content %>
+    <h6><%= comment.created_at %></h6>
+    <br/>
+  </div>
+  <% end %>
+  <br/>
+</div>
+
+  <%= erb :'comment/_comments', locals: {commentable: @book}%>
 
