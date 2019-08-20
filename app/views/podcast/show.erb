@@ -1,0 +1,34 @@
+<h3><div>Name: <%=h @podcast.name %>
+<br/>
+Episode Title: <%=h @podcast.episode_title %>
+<br/>
+Author: <a href="/authors/<%= @podcast.author.id %>"><%=h @podcast.author.name %></a>
+<br/>
+Year: <%= @podcast.year %>
+<br/>
+Source: <%= @podcast.source %>
+<br/>
+Stars: <%= @avg_rating %>
+</div></h3>
+<br/>
+<br/>
+<%= erb :'rating/_ratings', locals: {ratable: @podcast, ratable_type: "podcasts"} %>
+
+<br/>
+<br/>
+
+
+<div>
+  <h3>Trending:</h3>
+
+  <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
+  <div>
+     <%=h comment.user.name %>: <%=h comment.content %>
+    <h6><%= comment.created_at %></h6>
+    <br/>
+  </div>
+  <% end %>
+  <br/>
+</div>
+
+  <%= erb :'comment/_comments', locals: {commentable: @podcast, commentable_type: @commentable_type}%>

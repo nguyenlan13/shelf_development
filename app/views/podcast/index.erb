@@ -1,0 +1,10 @@
+<br/>
+
+  <h2>Podcasts in Library:</h2>
+
+  <% @podcasts.sort_by{|podcast| podcast[:name]}.each do |podcast| %>
+
+  <%= erb :'podcast/_podcasts', locals: {podcast: podcast}%>
+
+  <% end %>
+
