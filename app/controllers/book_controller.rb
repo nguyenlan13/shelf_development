@@ -39,6 +39,7 @@ class BookController < ApplicationController
 		@author = @book.author
 		@comments = @book.comments
 		@ratings = @book.ratings
+		@fave_quotes = @book.fave_quotes
 		@commentable_type = "books"
 		@quotable_type = "books"
 		@ratable_type = "books"

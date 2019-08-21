@@ -1,3 +1,9 @@
 .warning{
   color: red;
 }
+
+.custom-button:hover{
+  background-color: rgb(11, 93, 25);
+  color: rgb(255, 255, 255);
+  border-color: rgb(3, 30, 47), 146, 161);
+}

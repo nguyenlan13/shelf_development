@@ -38,6 +38,7 @@ class ArticleController < ApplicationController
 		@author = @article.author
 		@comments = @article.comments
 		@ratings = @article.ratings
+		@fave_quotes = @article.fave_quotes
     @commentable_type = "articles"
     @quotable_type = "articles"
 		@ratable_type = "articles"

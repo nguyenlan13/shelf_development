@@ -1,10 +1,21 @@
 
-<h2>Welcome, <%= @user.name %>!</h2>
 <br/>
+<h1>Welcome, <%= @user.name %>!</h1>
+<br/>
+
+<div>
+<h3>Your Favorite Quotes:</h3>
+<% @user.fave_quotes.all.each do |user| %>
+<p>"<%=h user.quote %>" - <a href="/authors/<%= user.quotable.author.id %>"><%=user.quotable.author.name%></a></p>
+<% end %>
+<br/>
+</div>
+
+
+<br/>
+<div>
 <h3>Share yourShelf:</a></h3>
-
-<br/>
-<h3><a href="/books">Books</a> | <a href="/books/new">Add</a></h3>
-<h3><a href="/articles">Articles</a> | <a href="/articles/new">Add</a></h3>
-<h3><a href="/podcasts">Podcasts</a> | <a href="/podcasts/new">Add</a></h3>
-
+<h4><a href="/books">Books</a> | <a href="/books/new">Add</a></h4>
+<h4><a href="/articles">Articles</a> | <a href="/articles/new">Add</a></h4>
+<h4><a href="/podcasts">Podcasts</a> | <a href="/podcasts/new">Add</a></h4>
+</div>

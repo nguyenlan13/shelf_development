@@ -9,13 +9,36 @@ Stars: <%= @avg_rating %>
 <br/>
 <br/>
 <%= erb :'rating/_ratings', locals: {ratable: @book, ratable_type: "books"} %>
-
-<br/>
 <br/>
 
 
+
+
+
+<br/>
 <div>
-  <h3>Trending:</h3>
+  <h3>Enlightnening Quotes:</h3>
+
+  <% @fave_quotes.sort_by{|fave_quote| fave_quote[:timestamps]}.each do |fave_quote| %>
+  <div>
+     <%=h fave_quote.quote %>
+    <h6><%= fave_quote.created_at %></h6>
+    <br/>
+  </div>
+  <% end %>
+  <br/>
+</div>
+<div>
+<%= erb :'fave_quote/_fave_quote', locals: {quotable: @book, quotable_type: "books"}%>
+</div>
+<br/>
+
+
+
+
+<br/>
+<div>
+  <h3>Comments:</h3>
 
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
@@ -26,6 +49,6 @@ Stars: <%= @avg_rating %>
   <% end %>
   <br/>
 </div>
-
+<div>
   <%= erb :'comment/_comments', locals: {commentable: @book, commentable_type: @commentable_type}%>
-
+</div>

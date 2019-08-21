@@ -38,6 +38,7 @@ class PodcastController < ApplicationController
       @author = @podcast.author
       @comments = @podcast.comments
       @ratings = @podcast.ratings
+      @fave_quotes = @podcast.fave_quotes
       @commentable_type = "podcasts"
       @quotable_type = "podcasts"
       @ratable_type = "podcasts"

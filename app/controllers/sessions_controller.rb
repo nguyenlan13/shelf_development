@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
     erb :'sessions/signup'
   end
 
-
   post '/signup' do
     if logged_in?
       redirect '/home'
@@ -38,7 +37,6 @@ class SessionsController < ApplicationController
 
   post '/login' do
     @user = User.find_by(username: params[:username])
-    # binding.pry
     if !!@user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       session[:name] = @user.name
@@ -48,6 +46,5 @@ class SessionsController < ApplicationController
       erb :'sessions/login'
     end
   end
-
 end
 
