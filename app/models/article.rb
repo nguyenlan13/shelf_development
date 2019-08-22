@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+  validates :title, uniqueness: true, presence: true
+  validates :year, presence: true
+  validates :source, presence: true
   
   belongs_to :author
   has_many :comments, as: :commentable

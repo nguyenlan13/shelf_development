@@ -1,6 +1,5 @@
 class Author < ActiveRecord::Base
-
-  validates :name, uniqueness: true
+  validates :name, uniqueness: true, presence: true
 
   has_many :books
   has_many :podcasts
