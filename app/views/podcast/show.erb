@@ -1,8 +1,8 @@
-<h3><div>Name: <%=h @podcast.name %>
+<h3><div>Name: <%= @podcast.name %>
 <br/>
-Episode Title: <%=h @podcast.episode_title %>
+Episode Title: <%= @podcast.episode_title %>
 <br/>
-Author: <a href="/authors/<%= @podcast.author.id %>"><%=h @podcast.author.name %></a>
+Author: <a href="/authors/<%= @podcast.author.id %>"><%= @podcast.author.name %></a>
 <br/>
 Year: <%= @podcast.year %>
 <br/>
@@ -22,7 +22,7 @@ Stars: <%= @avg_rating %>
 
   <% @fave_quotes.sort_by{|fave_quote| fave_quote[:timestamps]}.each do |fave_quote| %>
   <div>
-     <%=h fave_quote.quote %>
+     <%= fave_quote.quote %>
     <h6><%= fave_quote.created_at %></h6>
     <br/>
   </div>
@@ -39,7 +39,7 @@ Stars: <%= @avg_rating %>
   <h3>Comments:</h3>
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-     <%=h comment.user.name %>: <%=h comment.content %>
+     <%= comment.user.name %>: <%= comment.content %>
     <h6><%= comment.created_at %></h6>
     <br/>
   </div>

@@ -16,7 +16,7 @@ class BookController < ApplicationController
 	post '/books' do
 		authenticate
 		book_params = params[:book]
-		author = Author.find_or_create_by(name: book_params[:author])
+		author = Author.find_or_create_by(name: sanitize(book_params[:author]))
 		book = Book.find_by(title: book_params[:title], year: book_params[:year], author: author)
 		if book
 			@duplicate = true
@@ -24,7 +24,7 @@ class BookController < ApplicationController
 			erb :'book/new'
 		else
 			@duplicate = false
-			book = Book.create(title: book_params[:title], year: book_params[:year], author: author)
+			book = Book.create(title: sanitize(book_params[:title]), year: sanitize(book_params[:year]), author: author)
 			redirect "/books/#{book.id}"
 		end
 	end

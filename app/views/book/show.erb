@@ -1,6 +1,6 @@
-<h3><div>Title: <%=h @book.title %>
+<h3><div>Title: <%= @book.title %>
 <br/>
-Author: <a href="/authors/<%= @book.author.id %>"><%=h @book.author.name %></a>
+Author: <a href="/authors/<%= @book.author.id %>"><%= @book.author.name %></a>
 <br/>
 Year: <%= @book.year %>
 <br/>
@@ -21,7 +21,7 @@ Stars: <%= @avg_rating %>
 
   <% @fave_quotes.sort_by{|fave_quote| fave_quote[:timestamps]}.each do |fave_quote| %>
   <div>
-     <%=h fave_quote.quote %>
+     <%= fave_quote.quote %>
     <h6><%= fave_quote.created_at %></h6>
     <br/>
   </div>
@@ -42,7 +42,7 @@ Stars: <%= @avg_rating %>
 
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-     <%=h comment.user.name %>: <%=h comment.content %>
+     <%= comment.user.name %>: <%= comment.content %>
     <h6><%= comment.created_at %></h6>
     <br/>
   </div>
@@ -52,3 +52,8 @@ Stars: <%= @avg_rating %>
 <div>
   <%= erb :'comment/_comments', locals: {commentable: @book, commentable_type: @commentable_type}%>
 </div>
+
+
+
+
+

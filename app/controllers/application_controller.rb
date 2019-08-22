@@ -48,7 +48,13 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    def h(text)
+    def authorize
+      if !logged_in? || current_user.nil?
+          redirect '/login'
+      end
+    end
+
+    def sanitize(text)
       Rack::Utils.escape_html(text)
     end
 

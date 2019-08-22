@@ -1,4 +1,3 @@
-
 <br/>
 <h1>Welcome, <%= @user.name %>!</h1>
 <br/>
@@ -6,7 +5,7 @@
 <div>
 <h3>Your Favorite Quotes:</h3>
 <% @user.fave_quotes.all.each do |user| %>
-<p>"<%=h user.quote %>" - <a href="/authors/<%= user.quotable.author.id %>"><%=user.quotable.author.name%></a></p>
+<p>"<%= user.quote %>" - <a href="/authors/<%= user.quotable.author.id %>"><%=user.quotable.author.name%></a></p>
 <% end %>
 <br/>
 </div>
