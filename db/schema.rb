@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
-    t.text "content"
+    t.string "content"
     t.string "commentable_type"
     t.integer "commentable_id"
     t.datetime "created_at", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
 
   create_table "fave_quotes", force: :cascade do |t|
     t.integer "user_id"
-    t.text "quote"
+    t.string "quote"
     t.string "quotable_type"
     t.integer "quotable_id"
     t.datetime "created_at", null: false
@@ -75,10 +75,12 @@ ActiveRecord::Schema.define(version: 2019_08_13_035524) do
 
   create_table "reactions", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "comment_id"
-    t.string "type"
+    t.string "reactable_type"
+    t.integer "reactable_id"
+    t.integer "reaction_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reactable_type", "reactable_id"], name: "index_reactions_on_reactable_type_and_reactable_id"
   end
 
   create_table "users", force: :cascade do |t|

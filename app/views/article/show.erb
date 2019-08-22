@@ -1,6 +1,6 @@
-<h3><div>Title: <%=h @article.title %>
+<h3><div>Title: <%= @article.title %>
 <br/>
-Author: <a href="/authors/<%= @article.author.id %>"><%=h @article.author.name %></a>
+Author: <a href="/authors/<%= @article.author.id %>"><%= @article.author.name %></a>
 <br/>
 Year: <%= @article.year %>
 <br/>

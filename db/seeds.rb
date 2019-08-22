@@ -1,4 +1,4 @@
-lan = User.create(name: "Lan", username: "lan123", password: "password")
+lan = User.create(name: "Lan", username: "lnguyen", password: "password")
 User.create(name: "Micah", username: "thor", password: "password")
 
 jv = Author.create(name:"Jules Verne")
@@ -12,6 +12,7 @@ js = Author.create(name: "Jay Shetty")
 
 Book.create(title: "The Mysterious Island", year: 1874, author: jv)
 Book.create(title: "Mistborn", year: 2006, author: bs)
+Book.create(title: "Words of Radiance", year: 2001, author: bb)
 hph = Book.create(title: "High Performance Habits", year: 2017, author: bb)
 ah = Book.create(title: "Atomic Habits", year: 2018, author: jc)
 Book.create(title: "Can't Hurt Me", year: 2018, author: dg)
@@ -24,7 +25,6 @@ hgsp = Article.create(title: "Claude Shannon: How a Genius Solves Problems", yea
 
 
 Comment.create(user: lan, content:"my favorite book!", commentable: hph)
-
 
 FaveQuote.create(user: lan, quote: "If you leave your growth to randomness, you'll always live in the land of mediocrity", quotable: hph)
 FaveQuote.create(user: lan, quote: "What if everything in your life, including the most painful and traumatic events, was happening for you, not to you?", quotable: wice)

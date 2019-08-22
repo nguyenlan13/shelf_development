@@ -35,7 +35,7 @@
 	# end
 
 
-
+t.integer :comment_id
 
 
 
