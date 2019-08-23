@@ -1,0 +1,11 @@
+
+<form method="post" action="/fave_quotes/<%=@fave_quote.id%>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<input type="hidden" name="fave_quote[quotable_type]" value="<%= @fave_quote.quotable.class.name%>">
+<input type="hidden" name="fave_quote[quotable_id]" value="<%= @fave_quote.quotable.id%>">
+<!--<input type="hidden" name="fave_quote[quote_path]" value="<%= @fave_quote.quotable_type%>">-->
+<textarea name="fave_quote[quote]" placeholder="Type here "><%=@fave_quote.quote%></textarea>
+<br/>
+<br/>
+   <input type="submit" value="Edit Quote">
+</form>

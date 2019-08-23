@@ -8,7 +8,7 @@ Stars: <%= @avg_rating %>
 </div></h3>
 <br/>
 <br/>
-<%= erb :'rating/_ratings', locals: {ratable: @book, ratable_type: "books"} %>
+<%= erb :'rating/_ratings', locals: {ratable: @book, ratable_type: @ratable_type } %>
 <br/>
 
 
@@ -21,7 +21,7 @@ Stars: <%= @avg_rating %>
 
   <% @fave_quotes.sort_by{|fave_quote| fave_quote[:timestamps]}.each do |fave_quote| %>
   <div>
-     <%= fave_quote.quote %>
+     <%= fave_quote.quote %> <a href="/fave_quotes/<%=fave_quote.id%>/edit">Edit</a>
     <h6><%= fave_quote.created_at %></h6>
     <br/>
   </div>
@@ -29,7 +29,7 @@ Stars: <%= @avg_rating %>
   <br/>
 </div>
 <div>
-<%= erb :'fave_quote/_fave_quote', locals: {quotable: @book, quotable_type: "books"}%>
+<%= erb :'fave_quote/_fave_quote', locals: {quotable: @book, quotable_type: @quotable_type }%>
 </div>
 <br/>
 
@@ -42,7 +42,7 @@ Stars: <%= @avg_rating %>
 
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-     <%= comment.user.name %>: <%= comment.content %> <a href="/comments/<%=comment.id%>/edit">Edit</a>
+     <%= comment.user.name %>: <%= comment.content %> <a href="/comments/<%=comment.id%>/edit">Edit</a>    <a href="/comments/<%=comment.id%>">Delete</a>
     <h6><%= comment.created_at %></h6> 
     <br/>
   </div>

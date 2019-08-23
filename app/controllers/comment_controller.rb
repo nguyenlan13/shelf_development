@@ -25,6 +25,8 @@ class CommentController < ApplicationController
 
   patch '/comments/:id' do
     authorize
+    @commentable_id = params[:comment][:commentable_id]
+    @commentable_type = params[:comment][:commentable_type]
     comm_path
 
     @comment = Comment.find_by(id: params[:id])
@@ -40,6 +42,8 @@ class CommentController < ApplicationController
 
   delete '/comments/:id/delete' do
     authorize
+    # @commentable_id = params[:comment][:commentable_id]
+    @commentable_type = params[:comment][:commentable_type]
     comm_path
 
     @comment = Comment.find_by(id: params[:id])

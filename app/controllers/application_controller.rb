@@ -62,10 +62,8 @@ class ApplicationController < Sinatra::Base
       Rack::Utils.escape_html(text)
     end
 
-    def comm_path
-      @commentable_id = params[:comment][:commentable_id]
-      @commentable_type = params[:comment][:commentable_type]
-  
+
+    def comm_path 
       case @commentable_type
         when "Book"
           @comment_path = "books"
@@ -74,16 +72,13 @@ class ApplicationController < Sinatra::Base
         when "Article"
           @comment_path = "articles"
         else
-          "Invalid commentable_type #{@commentable_type}"
-        end
+          ""
       end
     end
+    
 
 
     def fq_path
-      @quotable_id = params[:fave_quote][:quotable_id]
-      @quotable_type = params[:fave_quote]][:quotable_type]
-  
       case @quotable_type
         when "Book"
           @quote_path = "books"
@@ -92,7 +87,7 @@ class ApplicationController < Sinatra::Base
         when "Article"
           @quote_path = "articles"
         else
-          "Invalid quotable_type #{@quotable_type}"
+          ""
         end
       end
     end

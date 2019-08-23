@@ -1,8 +1,8 @@
 <h4>Add a comment:</h4>
 <form method="post" action="/comments">
-<input type="hidden" name="comment[commentable_type]" value="<%= commentable_type%>">
+<input type="hidden" name="comment[commentable_type]" value="<%= commentable.class.name%>">
 <input type="hidden" name="comment[commentable_id]" value="<%= commentable.id%>">
-<!--<input type="hidden" name="comment[comment_path]" value="<%= commentable_type%>">-->
+<input type="hidden" name="comment[comment_path]" value="<%= commentable_type%>">
 <textarea name="comment[content]" placeholder="Type here"></textarea>
 <br/>
 <br/>

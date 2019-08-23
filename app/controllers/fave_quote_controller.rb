@@ -17,14 +17,18 @@ class FaveQuoteController < ApplicationController
     authorize
     @fave_quote = FaveQuote.find_by(id: params[:id])
     if @fave_quote.user_id != current_user.id
+      # @access = false
       redirect '/access_denied'    
     end
-    erb :"fave_quote/edit"
+      # @access = true
+      erb :"fave_quote/edit"
   end
 
 
   patch '/fave_quotes/:id' do
     authorize
+    @quotable_id = params[:fave_quote][:quotable_id]
+    @quotable_type = params[:fave_quote][:quotable_type]
     fq_path
 
     @fave_quote = FaveQuote.find_by(id: params[:id])
@@ -40,6 +44,8 @@ class FaveQuoteController < ApplicationController
 
   delete '/fave_quotes/:id/delete' do
     authorize
+    @quotable_id = params[:fave_quote][:quotable_id]
+    @quotable_type = params[:fave_quote][:quotable_type]
     fq_path
 
     @fave_quote = FaveQuote.find_by(id: params[:id])
@@ -52,15 +58,3 @@ class FaveQuoteController < ApplicationController
     end
 end
 
-
-
-
-
-
-
-
-
-
-
-
-end

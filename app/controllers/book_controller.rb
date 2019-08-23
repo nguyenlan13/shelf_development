@@ -40,6 +40,7 @@ class BookController < ApplicationController
 			redirect "/books"
 			return
 		end
+		@user = current_user
 		@author = @book.author
 		@comments = @book.comments
 		@ratings = @book.ratings
