@@ -4,8 +4,8 @@
 
 <div>
 <h3>Your Favorite Quotes:</h3>
-<% @user.fave_quotes.all.each do |user| %>
-<p>"<%= user.quote %>" - <a href="/authors/<%= user.quotable.author.id %>"><%=user.quotable.author.name%></a></p>
+<% @user.fave_quotes.all.each do |fave_quote| %>
+<p>"<%= fave_quote.quote %>" - <a href="/authors/<%= fave_quote.quotable.author.id %>"><%=fave_quote.quotable.author.name%></a></p>
 <% end %>
 <br/>
 </div>

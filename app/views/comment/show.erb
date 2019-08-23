@@ -10,7 +10,7 @@
 
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-     <%=h comment.user.name %>: <%=h comment.content %>
+     <%= comment.user.name %>: <%= comment.content %>
     <h6><%= comment.created_at %></h6>
     <br/>
   </div>

@@ -42,8 +42,8 @@ Stars: <%= @avg_rating %>
 
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-     <%= comment.user.name %>: <%= comment.content %>
-    <h6><%= comment.created_at %></h6>
+     <%= comment.user.name %>: <%= comment.content %> <a href="/comments/<%=comment.id%>/edit">Edit</a>
+    <h6><%= comment.created_at %></h6> 
     <br/>
   </div>
   <% end %>
@@ -52,7 +52,6 @@ Stars: <%= @avg_rating %>
 <div>
   <%= erb :'comment/_comments', locals: {commentable: @book, commentable_type: @commentable_type}%>
 </div>
-
 
 
 

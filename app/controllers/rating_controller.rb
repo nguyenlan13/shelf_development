@@ -3,7 +3,7 @@ class RatingController < ApplicationController
   ##RATINGS - polymorphic
   
 	post '/ratings' do
-		authenticate
+		authorize
     user = current_user
     @ratable_id = params[:rating][:ratable_id]
     @ratable_type = params[:rating][:ratable_type]

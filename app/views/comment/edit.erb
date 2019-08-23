@@ -1,19 +1,12 @@
-<form method="post" action="/'<%= @commentable_type%>'/<%= @commentable.id%>/comments/<%= @comment.id%>">
-    <input type="hidden" id="hidden" name="_method" value="patch">
-    <textarea name="comment[content]" id="post-content" cols="30" rows="10"><%=@comment.content%></textarea>
-    <input type="submit" value="Edit comment">
-</form>
 
 
-<h4>Add a comment:</h4>
-<form method="post" action="/comments">
+<form method="post" action="/comments/<%= @comment.id%>">
 <input id="hidden" type="hidden" name="_method" value="patch">
-<input type="hidden" name="comment[commentable_type]" value="<%= commentable.class.name%>">
-<input type="hidden" name="comment[commentable_id]" value="<%= commentable.id%>">
-<input type="hidden" name="comment[comment_path]" value="<%= commentable_type%>">
-<textarea name="comment[content]" placeholder="Type here"></textarea>
+<input type="hidden" name="comment[commentable_type]" value="<%= @comment.commentable.class.name%>">
+<input type="hidden" name="comment[commentable_id]" value="<%= @comment.commentable_id%>">
+<input type="hidden" name="comment[comment_path]" value="<%= @comment.commentable_type%>">
+<textarea name="comment[content]" placeholder="Type here"><%= @comment.content %></textarea>
 <br/>
 <br/>
 <input type="submit" value="Edit Comment">
 </form>
-

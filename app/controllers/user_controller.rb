@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
   get '/home' do
-    authenticate
+    authorize
     @user = current_user
     @fave_quotes = FaveQuote.all
     erb :'user/home'

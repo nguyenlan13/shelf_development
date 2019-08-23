@@ -1,10 +1,8 @@
-<h3><div>Title: <%= @article.title %>
+<h3><div>Title: <a href="<%= @article.source %>"><%= @article.title %></a>
 <br/>
 Author: <a href="/authors/<%= @article.author.id %>"><%= @article.author.name %></a>
 <br/>
 Year: <%= @article.year %>
-<br/>
-Source: <%= @article.source %>
 <br/>
 Stars: <%= @avg_rating %>
 </div></h3>
@@ -23,7 +21,7 @@ Stars: <%= @avg_rating %>
 
   <% @fave_quotes.sort_by{|fave_quote| fave_quote[:timestamps]}.each do |fave_quote| %>
   <div>
-     <%=h fave_quote.quote %>
+     <%= fave_quote.quote %>
     <h6><%= fave_quote.created_at %></h6>
     <br/>
   </div>
@@ -41,7 +39,7 @@ Stars: <%= @avg_rating %>
 
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-     <%=h comment.user.name %>: <%=h comment.content %>
+     <%= comment.user.name %>: <%= comment.content %><a href="/comments/<%=comment.id%>/edit">Edit</a>
     <h6><%= comment.created_at %></h6>
     <br/>
   </div>

@@ -1,12 +1,10 @@
 <h3><div>Name: <%= @podcast.name %>
 <br/>
-Episode Title: <%= @podcast.episode_title %>
+Episode Title: <a href="<%= @podcast.source %>"><%= @podcast.episode_title %></a>
 <br/>
 Author: <a href="/authors/<%= @podcast.author.id %>"><%= @podcast.author.name %></a>
 <br/>
 Year: <%= @podcast.year %>
-<br/>
-Source: <%= @podcast.source %>
 <br/>
 Stars: <%= @avg_rating %>
 </div></h3>
@@ -39,7 +37,7 @@ Stars: <%= @avg_rating %>
   <h3>Comments:</h3>
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-     <%= comment.user.name %>: <%= comment.content %>
+     <div><%= comment.user.name %>: <%= comment.content %> - <a href="/comments/<%=comment.id%>/edit">Edit</a></div>
     <h6><%= comment.created_at %></h6>
     <br/>
   </div>

@@ -54,7 +54,7 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    def sanitize(text)
+    def esc(text)
       Rack::Utils.escape_html(text)
     end
 

@@ -1,7 +1,10 @@
 <br/>
 
   <h2>Podcasts in Library:</h2>
-
+  <a href="/podcasts/new">[Add Podcast]</a>
+  <br/>
+  <br/>
+  <br/>
   <% @podcasts.sort_by{|podcast| podcast[:name]}.each do |podcast| %>
 
   <%= erb :'podcast/_podcasts', locals: {podcast: podcast}%>

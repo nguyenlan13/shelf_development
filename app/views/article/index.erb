@@ -1,7 +1,10 @@
 <br/>
 
   <h2>Articles in Library:</h2>
-
+  <a href="/articles/new">[Add Article]</a>
+  <br/>
+  <br/>
+  <br/>
   <% @articles.sort_by{|article| article[:title]}.each do |article| %>
 
   <%= erb :'article/_articles', locals: {article: article}%>
