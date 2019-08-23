@@ -21,6 +21,10 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
+  get '/access_denied' do
+    'Sorry, you are not authorized to edit.'
+  end
+
   not_found do
     'This is nowhere to be found.'
   end
@@ -58,5 +62,38 @@ class ApplicationController < Sinatra::Base
       Rack::Utils.escape_html(text)
     end
 
-  end
+    def comm_path
+      @commentable_id = params[:comment][:commentable_id]
+      @commentable_type = params[:comment][:commentable_type]
+  
+      case @commentable_type
+        when "Book"
+          @comment_path = "books"
+        when "Podcast"
+          @comment_path = "podcasts"
+        when "Article"
+          @comment_path = "articles"
+        else
+          "Invalid commentable_type #{@commentable_type}"
+        end
+      end
+    end
+
+
+    def fq_path
+      @quotable_id = params[:fave_quote][:quotable_id]
+      @quotable_type = params[:fave_quote]][:quotable_type]
+  
+      case @quotable_type
+        when "Book"
+          @quote_path = "books"
+        when "Podcast"
+          @quote_path = "podcasts"
+        when "Article"
+          @quote_path = "articles"
+        else
+          "Invalid quotable_type #{@quotable_type}"
+        end
+      end
+    end
 end
