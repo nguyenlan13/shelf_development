@@ -45,19 +45,16 @@ class CommentController < ApplicationController
 
   delete '/comments/:id' do
     # authorize
-    # @commentable_id = params[:comment][:commentable_id]
-    # @commentable_type = params[:comment][:commentable_type]
+    @commentable_id = params[:comment][:commentable_id]
+    @commentable_type = params[:comment][:commentable_type]
     comm_path
     
     @comment = Comment.find_by(id: params[:id])
     auth_edit(@comment)
       # if @comment.user_id != current_user.id
-      #   # binding.pry
       #   redirect '/access_denied'  
       # else
-        @comment.delete  
-        # binding.pry
-        # redirect "/#{@comment_path}/#{@book.id}"
+        @comment.delete
         redirect "/#{@comment_path}"
       # end
     end

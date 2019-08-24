@@ -21,40 +21,42 @@ class FaveQuoteController < ApplicationController
     # else
       auth_edit(@fave_quote)
       erb :"fave_quote/edit"
-    end
+    # end
   end
 
 
   patch '/fave_quotes/:id' do
-    authorize
+    # authorize
     @quotable_id = params[:fave_quote][:quotable_id]
     @quotable_type = params[:fave_quote][:quotable_type]
     fq_path
 
     @fave_quote = FaveQuote.find_by(id: params[:id])
-    if @fave_quote.user_id != current_user.id
-      redirect '/access_denied'      
-      else
+    auth_edit(@fave_quote)
+    # if @fave_quote.user_id != current_user.id
+    #   redirect '/access_denied'      
+    #   else
         # params[:comment][:content] = params[:comment][:content]
        @fave_quote.update(quote: params[:fave_quote][:quote])
-      end
+      # end
         redirect "/#{@quote_path}/#{@quotable_id}"
   end
 
 
-  delete '/fave_quotes/:id/delete' do
-    authorize
+  delete '/fave_quotes/:id' do
+    # authorize
     @quotable_id = params[:fave_quote][:quotable_id]
     @quotable_type = params[:fave_quote][:quotable_type]
     fq_path
 
     @fave_quote = FaveQuote.find_by(id: params[:id])
-    if @fave_quote.user_id != current_user.id
-      redirect '/access_denied'      
-      else
+    auth_edit(@fave_quote)
+    # if @fave_quote.user_id != current_user.id
+    #   redirect '/access_denied'      
+    #   else
        @fave_quote.delete
-        redirect "/#{@quote_path}/#{@quotable_id}"
-      end
+        redirect "/#{@quote_path}"
+      # end
     end
 end
 

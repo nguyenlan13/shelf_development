@@ -13,5 +13,6 @@ use RatingController
 use CommentController
 use FaveQuoteController
 use ReactionController
+use AuthorController
 
 run ApplicationController

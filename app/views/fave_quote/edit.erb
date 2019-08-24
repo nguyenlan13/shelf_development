@@ -9,3 +9,16 @@
 <br/>
    <input type="submit" value="Edit Quote">
 </form>
+
+
+
+<form method="post" action="/comments/<%=@fave_quote.id%>">
+<input type="hidden" name="fave_quote[quotable_type]" value="<%= @fave_quote.quotable.class.name%>">
+<input type="hidden" name="fave_quote[quotable_id]" value="<%= @fave_quote.quotable.id%>">
+    <input type="hidden" name="_method" value="delete">
+
+    <!--<input type="hidden" name="id" value="<%=@fave_quote.id%>">-->
+<br/>
+    <input type="submit" value="Delete">
+</form>
+<br>
