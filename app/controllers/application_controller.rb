@@ -58,6 +58,12 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    def auth_edit(item)
+      authorize
+      redirect '/access_denied' if !item
+      redirect '/access_denied' if item.user_id != current_user.id   
+    end
+
     def esc(text)
       Rack::Utils.escape_html(text)
     end

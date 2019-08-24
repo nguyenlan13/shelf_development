@@ -14,14 +14,14 @@ class FaveQuoteController < ApplicationController
 
 
   get '/fave_quotes/:id/edit' do
-    authorize
+    # authorize
     @fave_quote = FaveQuote.find_by(id: params[:id])
-    if @fave_quote.user_id != current_user.id
-      # @access = false
-      redirect '/access_denied'    
-    end
-      # @access = true
+    # if @fave_quote.user_id != current_user.id
+    #   redirect '/access_denied'    
+    # else
+      auth_edit(@fave_quote)
       erb :"fave_quote/edit"
+    end
   end
 
 
@@ -52,9 +52,11 @@ class FaveQuoteController < ApplicationController
     if @fave_quote.user_id != current_user.id
       redirect '/access_denied'      
       else
-        @fave_quote.delete
+       @fave_quote.delete
         redirect "/#{@quote_path}/#{@quotable_id}"
       end
     end
 end
+
+
 

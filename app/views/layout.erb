@@ -11,15 +11,13 @@
 <body>
 <h1>Shelf Development</h1>
 <h4>Knowledge - Power - Growth</h4>
+<br/>
+<% if logged_in? %>
+  <h5><a href="/home">Home</a> <a href="/logout">Logout</a></h5>
+  <% end %>
   <br/>  
   <%= yield%>
   <br/>
   <br/>
-<% if logged_in? %>
-  <h5><a href="/home">Home</a></h5>
-  <% end %>
-<% if logged_in? %>
-  <h5><a href="/logout">Logout</a></h5>
-  <% end %>
 </body>
 </html>

@@ -13,10 +13,12 @@
 
 
 
-<form method="post" action="/comments/<%= @comment.id%>/delete">
-    <input type="hidden" name="_method" value="delete">
-    <input type="hidden" name="id" value="<%= @comment.id%>">
+<form method="post" action="/comments/<%= @comment.id%>">
 
+
+    <input type="hidden" name="_method" value="delete">
+
+    <!--<input type="hidden" name="id" value="<%= @comment.id%>">-->
 <br/>
     <input type="submit" value="Delete">
 </form>

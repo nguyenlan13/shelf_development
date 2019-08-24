@@ -14,44 +14,51 @@ class CommentController < ApplicationController
 
 
   get '/comments/:id/edit' do
-    authorize
+    # authorize
     @comment = Comment.find_by(id: params[:id])
-    if @comment.user_id != current_user.id
-      redirect '/access_denied'    
-    end
+    # if @comment.user_id != current_user.id
+    #   redirect '/access_denied'    
+    # end
+    auth_edit(@comment)
     erb :"comment/edit"
   end
 
 
   patch '/comments/:id' do
-    authorize
+    # authorize
     @commentable_id = params[:comment][:commentable_id]
     @commentable_type = params[:comment][:commentable_type]
     comm_path
 
     @comment = Comment.find_by(id: params[:id])
-      if @comment.user_id != current_user.id
-        redirect '/access_denied'     
-      else
-        # params[:comment][:content] = params[:comment][:content]
+      auth_edit(@comment)
+      # if @comment.user_id != current_user.id
+      #   redirect '/access_denied'     
+      # else
+        #need to sanitize
+        # params[:comment][:content] = need params[:comment][:content]
        @comment.update(content: params[:comment][:content])
-      end
+      # end
         redirect "/#{@comment_path}/#{@commentable_id}"
   end
 
 
-  delete '/comments/:id/delete' do
-    authorize
+  delete '/comments/:id' do
+    # authorize
     # @commentable_id = params[:comment][:commentable_id]
-    @commentable_type = params[:comment][:commentable_type]
+    # @commentable_type = params[:comment][:commentable_type]
     comm_path
-
+    
     @comment = Comment.find_by(id: params[:id])
-      if @comment.user_id != current_user.id
-        redirect '/access_denied'    
-      else
-        @comment.delete
-        redirect "/#{@comment_path}/#{@commentable_id}"
-      end
+    auth_edit(@comment)
+      # if @comment.user_id != current_user.id
+      #   # binding.pry
+      #   redirect '/access_denied'  
+      # else
+        @comment.delete  
+        # binding.pry
+        # redirect "/#{@comment_path}/#{@book.id}"
+        redirect "/#{@comment_path}"
+      # end
     end
 end

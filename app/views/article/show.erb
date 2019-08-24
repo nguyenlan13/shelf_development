@@ -22,7 +22,7 @@ Stars: <%= @avg_rating %>
   <% @fave_quotes.sort_by{|fave_quote| fave_quote[:timestamps]}.each do |fave_quote| %>
   <div>
      <%= fave_quote.quote %>
-    <h6><%= fave_quote.created_at %></h6>
+    <h6><%= fave_quote.created_at.strftime("%A, %B %d, %Y") %></h6>
     <br/>
   </div>
   <% end %>
@@ -40,7 +40,7 @@ Stars: <%= @avg_rating %>
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
      <%= comment.user.name %>: <%= comment.content %><a href="/comments/<%=comment.id%>/edit">Edit</a>
-    <h6><%= comment.created_at %></h6>
+    <h6><%= comment.created_at.strftime("%A, %B %d, %Y") %></h6>
     <br/>
   </div>
   <% end %>
