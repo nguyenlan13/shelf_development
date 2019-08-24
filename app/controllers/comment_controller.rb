@@ -12,50 +12,47 @@ class CommentController < ApplicationController
     redirect "/#{@comment_path}/#{@commentable_id}"
 	end
 
+  # post '/comments/:id/replies' do
+  #   authorize
+  #   if @comment = Comment.find_by(id: params[:id])
+  #       user = current_user
+  #       @commentable_type = "Comment"
+
+  #       redirect "/#{@comment_path}/#{@commentable_id}"
+
+  #   end
+  # end 
+
 
   get '/comments/:id/edit' do
-    # authorize
     @comment = Comment.find_by(id: params[:id])
-    # if @comment.user_id != current_user.id
-    #   redirect '/access_denied'    
-    # end
     auth_edit(@comment)
     erb :"comment/edit"
   end
 
 
   patch '/comments/:id' do
-    # authorize
     @commentable_id = params[:comment][:commentable_id]
     @commentable_type = params[:comment][:commentable_type]
     comm_path
 
     @comment = Comment.find_by(id: params[:id])
-      auth_edit(@comment)
-      # if @comment.user_id != current_user.id
-      #   redirect '/access_denied'     
-      # else
+    auth_edit(@comment)
         #need to sanitize
         # params[:comment][:content] = need params[:comment][:content]
-       @comment.update(content: params[:comment][:content])
-      # end
-        redirect "/#{@comment_path}/#{@commentable_id}"
+    @comment.update(content: params[:comment][:content])
+    redirect "/#{@comment_path}/#{@commentable_id}"
   end
 
 
   delete '/comments/:id' do
-    # authorize
     @commentable_id = params[:comment][:commentable_id]
     @commentable_type = params[:comment][:commentable_type]
     comm_path
     
     @comment = Comment.find_by(id: params[:id])
     auth_edit(@comment)
-      # if @comment.user_id != current_user.id
-      #   redirect '/access_denied'  
-      # else
         @comment.delete
         redirect "/#{@comment_path}"
-      # end
     end
 end

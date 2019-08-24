@@ -68,7 +68,6 @@ class ApplicationController < Sinatra::Base
       Rack::Utils.escape_html(text)
     end
 
-
     def comm_path 
       case @commentable_type
         when "Book"
@@ -81,8 +80,6 @@ class ApplicationController < Sinatra::Base
           ""
       end
     end
-    
-
 
     def fq_path
       case @quotable_type

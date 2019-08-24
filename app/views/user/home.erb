@@ -5,7 +5,7 @@
 <div>
 <h3>Your Favorite Quotes:</h3>
 <% @user.fave_quotes.all.each do |fave_quote| %>
-<p>"<%= fave_quote.quote %>" - <a href="/authors/<%= fave_quote.quotable.author.id %>"><%=fave_quote.quotable.author.name%></a> </p> <a href="/fave_quotes/<%=fave_quote.id%>/edit">Edit</a>
+<p>"<%= fave_quote.quote %>" - <a href="/<%=fave_quote.quotable_type.downcase%>s/<%=fave_quote.quotable_id%>"><%= fave_quote.quotable_type.downcase == "podcast" ? fave_quote.quotable.name : fave_quote.quotable.title%></a> </p> <a href="/fave_quotes/<%=fave_quote.id%>/edit">Edit</a>
 <% end %>
 <br/>
 </div>

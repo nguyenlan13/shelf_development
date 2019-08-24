@@ -12,7 +12,7 @@ js = Author.create(name: "Jay Shetty")
 
 Book.create(title: "The Mysterious Island", year: 1874, author: jv)
 Book.create(title: "Mistborn", year: 2006, author: bs)
-Book.create(title: "Words of Radiance", year: 2001, author: bb)
+Book.create(title: "Words of Radiance", year: 2001, author: bs)
 hph = Book.create(title: "High Performance Habits", year: 2017, author: bb)
 ah = Book.create(title: "Atomic Habits", year: 2018, author: jc)
 Book.create(title: "Can't Hurt Me", year: 2018, author: dg)
