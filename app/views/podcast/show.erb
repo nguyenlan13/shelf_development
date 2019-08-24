@@ -20,7 +20,7 @@ Stars: <%= @avg_rating %>
 
   <% @fave_quotes.sort_by{|fave_quote| fave_quote[:timestamps]}.each do |fave_quote| %>
   <div>
-     <%= fave_quote.quote %> <h6><%= fave_quote.created_at.strftime("%A, %B %d, %Y") %></h6>
+     "<%= fave_quote.quote %>" <h6><%= fave_quote.created_at.strftime("%A, %B %d, %Y") %></h6>
      <% if fave_quote.user_id == current_user.id%><p><a href="/fave_quotes/<%=fave_quote.id%>/edit">Edit</a> </p><% end%>
     <br/>
   </div>

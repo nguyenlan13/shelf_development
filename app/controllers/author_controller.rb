@@ -5,4 +5,6 @@ class AuthorController < ApplicationController
     @authors = Author.all
 		erb :'author/index'
   end
+
+  
 end
