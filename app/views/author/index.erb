@@ -1,0 +1,9 @@
+  <br/>
+  <h2>Authors:</h2>
+  <br/>
+  <br/>
+  <br/>
+  <% @authors.sort_by{|author| author[:name]}.each do |author| %>
+
+ <%= erb :'author/_authors', locals: {author: author}%>
+  <% end %>
