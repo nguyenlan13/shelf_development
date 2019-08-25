@@ -21,6 +21,14 @@
 <input type="url" name="article[source]" id="article[source]">
 <br/>
 <br/>
+<% if @article %>
+    <div class="warning"><ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
 <% if @duplicate %>
   <p class="warning">This article is already in the library. Please choose from list.</p>
 <% end %>

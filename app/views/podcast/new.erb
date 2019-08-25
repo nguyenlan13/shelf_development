@@ -26,6 +26,14 @@
 <input type="url" name="podcast[source]" id="podcast[source]">
 <br/>
 <br/>
+<% if @podcast %>
+    <div class="warning"><ul>
+    <% @podcast.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
 <% if @duplicate %>
   <p class="warning">This podcast is already in the library. Please choose from list.</p>
 <% end %>
