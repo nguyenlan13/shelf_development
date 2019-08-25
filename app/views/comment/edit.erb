@@ -1,10 +1,10 @@
 
 <form method="post" action="/comments/<%= @comment.id%>">
 <input id="hidden" type="hidden" name="_method" value="patch">
-<input type="hidden" name="comment[commentable_type]" value="<%= @comment.commentable.class.name%>">
-<input type="hidden" name="comment[commentable_id]" value="<%= @comment.commentable.id%>">
+<input type="hidden" name="comment[commentable_type]" value="<%=esc @comment.commentable.class.name%>">
+<input type="hidden" name="comment[commentable_id]" value="<%=esc @comment.commentable.id%>">
 <!--<input type="hidden" name="comment[comment_path]" value="<%= @comment.commentable_type%>">-->
-<textarea name="comment[content]" placeholder="Type here"><%= @comment.content %></textarea>
+<textarea name="comment[content]" placeholder="Type here"><%=esc @comment.content %></textarea>
 <br/>
 <br/>
 <div><input type="submit" value="Edit Comment">
@@ -12,9 +12,9 @@
 
 
 
-<form method="post" action="/comments/<%= @comment.id%>">
-<input type="hidden" name="comment[commentable_type]" value="<%= @comment.commentable.class.name%>">
-<input type="hidden" name="comment[commentable_id]" value="<%= @comment.commentable.id%>">
+<form method="post" action="/comments/<%=esc @comment.id%>">
+<input type="hidden" name="comment[commentable_type]" value="<%=esc @comment.commentable.class.name%>">
+<input type="hidden" name="comment[commentable_id]" value="<%=esc @comment.commentable.id%>">
     <input type="hidden" name="_method" value="delete">
 
     <!--<input type="hidden" name="id" value="<%= @comment.id%>">-->

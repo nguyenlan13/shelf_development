@@ -7,7 +7,7 @@
   <% @books.sort_by{|book| book[:title]}.each do |book| %>
   
   <div class="book">
-    <h4><a href="/books/<%= book.id %>"><%=esc book.title %></a></h4>
+    <h4><a href="/books/<%=esc book.id %>"><%=esc book.title %></a></h4>
   </div>
 
   <% end %>

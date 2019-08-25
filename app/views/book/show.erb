@@ -41,8 +41,8 @@ Stars: <%= @avg_rating %>
 
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-    <%= comment.user.name %>: <%=esc comment.content %> <h6><%= comment.created_at.strftime("%A, %B %d, %Y") %></h6> 
-    <% if comment.user_id == current_user.id%><p><a href="/comments/<%=comment.id%>/edit">Edit</a></p> <% end %>
+    <%=esc comment.user.name %>: <%=esc comment.content %> <h6><%=esc comment.created_at.strftime("%A, %B %d, %Y") %></h6> 
+    <% if comment.user_id == current_user.id%><p><a href="/comments/<%=esc comment.id%>/edit">Edit</a></p> <% end %>
     <br/>
   </div>
   <% end %>

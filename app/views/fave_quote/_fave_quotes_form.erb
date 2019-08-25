@@ -1,8 +1,8 @@
 <h4>Add a quote: </h4>
 <form method="post" action="/fave_quotes">
-<input type="hidden" name="fave_quote[quotable_type]" value="<%= quotable.class.name%>">
-<input type="hidden" name="fave_quote[quotable_id]" value="<%= quotable.id%>">
-<input type="hidden" name="fave_quote[quote_path]" value="<%= quotable_type%>">
+<input type="hidden" name="fave_quote[quotable_type]" value="<%=esc quotable.class.name%>">
+<input type="hidden" name="fave_quote[quotable_id]" value="<%=esc quotable.id%>">
+<input type="hidden" name="fave_quote[quote_path]" value="<%=esc quotable_type%>">
 <textarea name="fave_quote[quote]" placeholder="Type here "></textarea>
 <br/>
 <br/>

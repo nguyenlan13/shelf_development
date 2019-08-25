@@ -29,7 +29,7 @@
 <% if @podcast %>
     <div class="warning"><ul>
     <% @podcast.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <li><%=esc msg %></li>
     <% end %>
     </ul>
 </div>

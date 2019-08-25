@@ -6,7 +6,7 @@
   <% @articles.sort_by{|article| article[:title]}.each do |article| %>
 
   <div class="article">
-    <h4><a href="/articles/<%= article.id %>"><%=esc article.title %></a></h4>
+    <h4><a href="/articles/<%=esc article.id %>"><%=esc article.title %></a></h4>
   </div>
 
   <% end %>

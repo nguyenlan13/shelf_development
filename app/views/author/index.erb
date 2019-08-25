@@ -4,6 +4,6 @@
   <br/>
   <% @authors.sort_by{|author| author[:name]}.each do |author| %>
   <div class="author">
-    <h4><a href="/authors/<%= author.id%>"><%=esc author.name %></a></h4>
+    <h4><a href="/authors/<%=esc author.id%>"><%=esc author.name %></a></h4>
   </div>
   <% end %>

@@ -1,8 +1,8 @@
 
 <form method="post" action="/reactions">
-<input type="hidden" name="rating[ratable_type]" value="<%= ratable.class.name%>">
-<input type="hidden" name="rating[ratable_id]" value="<%= ratable.id%>">
-<input type="hidden" name="rating[rating_path]" value="<%= ratable_type%>">
+<input type="hidden" name="rating[ratable_type]" value="<%=esc ratable.class.name%>">
+<input type="hidden" name="rating[ratable_id]" value="<%=esc ratable.id%>">
+<input type="hidden" name="rating[rating_path]" value="<%=esc ratable_type%>">
 <label><input type="radio" name="rating[rate]" value="1">1</label>
 <label><input type="radio" name="rating[rate]" value="2">2</label>
 <label><input type="radio" name="rating[rate]" value="3">3</label>

@@ -24,7 +24,7 @@
 <% if @article %>
     <div class="warning"><ul>
     <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <li><%=esc msg %></li>
     <% end %>
     </ul>
 </div>
