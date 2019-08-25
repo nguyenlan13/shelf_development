@@ -1,6 +1,5 @@
 class BookController < ApplicationController
 
-	
 	get '/books' do
 		authenticate
 		@books = Book.all

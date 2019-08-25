@@ -12,29 +12,34 @@ class PodcastController < ApplicationController
       erb :'podcast/new'
     end
   
-    post '/podcasts/new' do
-      authenticate
+    post '/podcasts' do
+      authorize
       podcast_params = params[:podcast]
       author = Author.find_or_create_by(name: podcast_params[:author])
-      podcast = Podcast.find_by(title: podcast_params[:name], episode_title: podcast_params[:episode_title], year: podcast_params[:year], source: podcast_params[:source], author: author)
+      podcast = Podcast.find_by(name: podcast_params[:name], episode_title: podcast_params[:episode_title], year: podcast_params[:year], source: podcast_params[:source], author: author)
       if podcast
         @duplicate = true
         @podcasts = Podcast.all
         erb :'podcast/new'
       else
         @duplicate = false
-        podcast = Podcast.create(title: podcast_params[:title], year: podcast_params[:year], source: podcast_params[:source], author: author)
-        redirect "/podcasts/#{podcast.id}"
+        @podcast = Podcast.create(name: podcast_params[:name], episode_title: podcast_params[:episode_title], year: podcast_params[:year], source: podcast_params[:source], author: author)
+        if @podcast.id
+          redirect "/podcasts/#{@podcast.id}"
+        else
+          erb :'podcast/new'
+        end
       end
     end
         
     get '/podcasts/:id' do
-      authenticate
+      authorize
       @podcast = Podcast.find(params[:id])
       if !@podcast
         redirect "/podcasts"
         return
       end
+      @user = current_user
       @author = @podcast.author
       @comments = @podcast.comments
       @ratings = @podcast.ratings

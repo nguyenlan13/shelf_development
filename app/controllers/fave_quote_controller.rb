@@ -40,9 +40,9 @@ class FaveQuoteController < ApplicationController
 
     @fave_quote = FaveQuote.find_by(id: params[:id])
     auth_edit(@fave_quote)
-       @fave_quote.delete
-        redirect "/#{@quote_path}"
-    end
+    @fave_quote.delete
+    redirect "/#{@quote_path}"
+  end
 end
 
 

@@ -12,9 +12,9 @@ class ArticleController < ApplicationController
     erb :'article/new'
   end
 
-  post '/articles/new' do
-    authenticate
-    article_params = params[:article]
+  post '/articles' do
+		authorize
+		article_params = params[:article]
     author = Author.find_or_create_by(name: article_params[:author])
     article = Article.find_by(title: article_params[:title], year: article_params[:year], source: article_params[:source], author: author)
     if article
@@ -23,18 +23,23 @@ class ArticleController < ApplicationController
 			erb :'article/new'
 		else
 			@duplicate = false
-			article = Article.create(title: article_params[:title], year: article_params[:year], source: article_params[:source], author: author)
-			redirect "/articles/#{article.id}"
+			@article = Article.create(title: article_params[:title], year: article_params[:year], source: article_params[:source], author: author)
+			if @article.id
+				redirect "/articles/#{@article.id}"
+			else
+				erb :'article/new'
+			end
     end
   end
       
 	get '/articles/:id' do
-		authenticate
+		authorize
 		@article = Article.find(params[:id])
 		if !@article
 			redirect "/articles"
 			return
 		end
+		@user = current_user
 		@author = @article.author
 		@comments = @article.comments
 		@ratings = @article.ratings

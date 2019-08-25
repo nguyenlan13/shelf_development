@@ -52,7 +52,7 @@ class CommentController < ApplicationController
     
     @comment = Comment.find_by(id: params[:id])
     auth_edit(@comment)
-        @comment.delete
-        redirect "/#{@comment_path}"
-    end
+    @comment.delete
+    redirect "/#{@comment_path}"
+  end
 end
