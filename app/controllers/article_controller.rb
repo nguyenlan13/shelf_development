@@ -34,7 +34,7 @@ class ArticleController < ApplicationController
       
 	get '/articles/:id' do
 		authorize
-		@article = Article.find(params[:id])
+		@article = Article.find_by(id: params[:id])
 		if !@article
 			redirect "/does_not_exist"
 			return

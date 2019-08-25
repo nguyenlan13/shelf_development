@@ -34,7 +34,7 @@ class PodcastController < ApplicationController
         
     get '/podcasts/:id' do
       authorize
-      @podcast = Podcast.find(params[:id])
+      @podcast = Podcast.find_by(id: params[:id])
       if !@podcast
         redirect "/does_not_exist"
         return
