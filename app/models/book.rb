@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
+  validates :author_id, presence: true
   validates :title, uniqueness: true, presence: true
-  validates :year, presence: true
+  validates :year, presence: true, numericality: true, length: {in: 4}
   
   belongs_to :author
   has_many :comments, as: :commentable
