@@ -2,7 +2,7 @@
 <br/>
 Author: <a href="/authors/<%= @book.author.id %>"><%=esc @book.author.name %></a>
 <br/>
-Year: <%= @book.year %>
+Year: <%=esc @book.year %>
 <br/>
 Stars: <%= @avg_rating %>
 </div></h3>
@@ -20,7 +20,7 @@ Stars: <%= @avg_rating %>
 
   <% @fave_quotes.sort_by{|fave_quote| fave_quote[:timestamps]}.each do |fave_quote| %>
   <div>
-     "<%= fave_quote.quote %>" <h6><%= fave_quote.created_at.strftime("%A, %B %d, %Y") %></h6> 
+     "<%=esc fave_quote.quote %>" <h6><%= fave_quote.created_at.strftime("%A, %B %d, %Y") %></h6> 
     <% if fave_quote.user_id == current_user.id%><p><a href="/fave_quotes/<%=fave_quote.id%>/edit">Edit</a> </p><% end%>
     <br/>
   </div>
@@ -41,7 +41,7 @@ Stars: <%= @avg_rating %>
 
   <% @comments.sort_by{|comment| comment[:timestamps]}.each do |comment| %>
   <div>
-    <%= comment.user.name %>: <%= comment.content %> <h6><%= comment.created_at.strftime("%A, %B %d, %Y") %></h6> 
+    <%= comment.user.name %>: <%=esc comment.content %> <h6><%= comment.created_at.strftime("%A, %B %d, %Y") %></h6> 
     <% if comment.user_id == current_user.id%><p><a href="/comments/<%=comment.id%>/edit">Edit</a></p> <% end %>
     <br/>
   </div>
