@@ -7,7 +7,7 @@
   <br/>
   <% @podcasts.sort_by{|podcast| podcast[:name]}.each do |podcast| %>
 
-  <%= erb :'podcast/_podcasts', locals: {podcast: podcast}%>
+
 
   <% end %>
 

@@ -1,6 +1,6 @@
 <br/>
 <h3>Add a podcast to our Shelf:</h3>
-<form method="post" action="/podcasts/new">
+<form method="post" action="/podcasts">
 <label for="podcast[name]">Podcast Name: </label>
 <br/>
 <input type="text" name="podcast[name]" id="podcast[name]">
@@ -11,9 +11,9 @@
 <input type="text" name="podcast[episode_title]" id="podcast[episode_title]">
 <br/>
 <br/>
-<label for="podcast[authors]">Hosted By: </label>
+<label for="podcast[author]">Hosted By: </label>
 <br/>
-<input type="text" name="podcast[authors]" id="podcast[authors]">
+<input type="text" name="podcast[author]" id="podcast[author]">
 <br/>
 <br/>
 <label for="podcast[year]">Year: </label>
@@ -23,7 +23,7 @@
 <br/>
 <label for="podcast[source]">Link to Podcast: </label>
 <br/>
-<input type="string" name="podcast[source]" id="podcast[source]">
+<input type="url" name="podcast[source]" id="podcast[source]">
 <br/>
 <br/>
 <% if @duplicate %>

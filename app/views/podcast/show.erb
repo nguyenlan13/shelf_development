@@ -10,7 +10,7 @@ Stars: <%= @avg_rating %>
 </div></h3>
 <br/>
 <br/>
-<%= erb :'rating/_ratings', locals: {ratable: @podcast, ratable_type: "podcasts"} %>
+<%= erb :'rating/_ratings_form', locals: {ratable: @podcast, ratable_type: @ratable_type} %>
 <br/>
 
 
@@ -28,7 +28,7 @@ Stars: <%= @avg_rating %>
   <br/>
 </div>
 <div>
-<%= erb :'fave_quote/_fave_quote', locals: {quotable: @podcast, quotable_type: "podcasts"}%>
+<%= erb :'fave_quote/_fave_quote', locals: {quotable: @podcast, quotable_type: @quotable_type}%>
 </div>
 <br/>
 

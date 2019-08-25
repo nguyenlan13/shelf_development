@@ -1,6 +1,6 @@
-<h3><div>Title: <a href="<%= @article.source %>"><%= @article.title %></a>
+<h3><div>Title: <a href="<%=esc @article.source %>"><%=esc @article.title %></a>
 <br/>
-Author: <a href="/authors/<%= @article.author.id %>"><%= @article.author.name %></a>
+Author: <a href="/authors/<%= @article.author.id %>"><%=esc @article.author.name %></a>
 <br/>
 Year: <%= @article.year %>
 <br/>
@@ -9,9 +9,9 @@ Stars: <%= @avg_rating %>
 <br/>
 <br/>
 
-<div>
-<%= erb :'rating/_ratings', locals: {ratable: @article, ratable_type: "articles"} %>
-</div>
+
+<%= erb :'rating/_ratings_form', locals: {ratable: @article, ratable_type: @ratable_type } %>
+
 <br/>
 <br/>
 
@@ -30,7 +30,7 @@ Stars: <%= @avg_rating %>
   <br/>
 </div>
 <div>
-<%= erb :'fave_quote/_fave_quote', locals: {quotable: @article, quotable_type: "articles"}%>
+<%= erb :'fave_quote/_fave_quote', locals: {quotable: @article, quotable_type: @quotable_type }%>
 </div>
 
 <br/>

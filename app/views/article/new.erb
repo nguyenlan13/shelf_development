@@ -1,14 +1,14 @@
 <br/>
 <h3>Add an article to our Shelf:</h3>
-<form method="post" action="/articles/new">
+<form method="post" action="/articles">
 <label for="article[title]">Title: </label>
 <br/>
 <input type="text" name="article[title]" id="article[title]">
 <br/>
 <br/>
-<label for="article[authors]">Author(s): </label>
+<label for="article[author]">Author: </label>
 <br/>
-<input type="text" name="article[authors]" id="article[authors]">
+<input type="text" name="article[author]" id="article[author]">
 <br/>
 <br/>
 <label for="article[year]">Year: </label>
@@ -18,7 +18,7 @@
 <br/>
 <label for="article[source]">Link to article: </label>
 <br/>
-<input type="string" name="article[source]" id="article[source]">
+<input type="url" name="article[source]" id="article[source]">
 <br/>
 <br/>
 <% if @duplicate %>
