@@ -30,7 +30,7 @@ Stars: <%= @avg_rating %>
   <br/>
 </div>
 <div>
-<%= erb :'fave_quote/_fave_quote', locals: {quotable: @article, quotable_type: @quotable_type }%>
+<%= erb :'fave_quote/_fave_quotes_form', locals: {quotable: @article, quotable_type: @quotable_type }%>
 </div>
 
 <br/>
@@ -49,5 +49,5 @@ Stars: <%= @avg_rating %>
   <br/>
 </div>
 <div>
-  <%= erb :'comment/_comments', locals: {commentable: @article, commentable_type: @commentable_type}%>
+  <%= erb :'comment/_comments_form', locals: {commentable: @article, commentable_type: @commentable_type}%>
 </div>
