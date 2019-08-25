@@ -7,7 +7,9 @@
   <br/>
   <% @articles.sort_by{|article| article[:title]}.each do |article| %>
 
-  <%= erb :'article/_articles', locals: {article: article}%>
+  <div class="article">
+    <h4><a href="/articles/<%= article.id %>"><%=esc article.title %></a></h4>
+  </div>
 
   <% end %>
 

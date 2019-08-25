@@ -7,8 +7,10 @@
   <br/>
   <br/>
   <% @books.sort_by{|book| book[:title]}.each do |book| %>
-
-  <%= erb :'book/_books', locals: {book: book}%>
+  
+  <div class="book">
+    <h4><a href="/books/<%= book.id %>"><%=esc book.title %></a></h4>
+  </div>
 
   <% end %>
 

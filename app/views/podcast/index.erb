@@ -7,7 +7,9 @@
   <br/>
   <% @podcasts.sort_by{|podcast| podcast[:name]}.each do |podcast| %>
 
-
+  <div class="podcast">
+    <h4><%= podcast.name %> - <a href="/podcasts/<%= podcast.id %>"><%= podcast.episode_title %></a></h4>
+  </div>
 
   <% end %>
 

@@ -1,9 +1,9 @@
   <h4>Reply:</h4>
-<form method="post" action="/comments">
+<form method="post" action="/comments<%= @comment.id%>/replies"> <!--need to fix this route-->
 <input type="hidden" name="comment[commentable_type]" value="<%= commentable.class.name%>">
 <input type="hidden" name="comment[commentable_id]" value="<%= commentable.id%>">
 <input type="hidden" name="comment[comment_path]" value="<%= commentable_type%>">
-<textarea name="comment[content]" placeholder="Type here"></textarea>
+<textarea name="comment[content]" placeholder="Reply here.."></textarea>
 <br/>
 <br/>
 <input type="submit" value="Reply">
