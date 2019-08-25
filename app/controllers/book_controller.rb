@@ -1,13 +1,13 @@
 class BookController < ApplicationController
 
 	get '/books' do
-		authenticate
+		authorize
 		@books = Book.all
 		erb :'book/index'
 	end
 		
 	get '/books/new' do
-		authenticate
+		authorize
 		@books = Book.all
 		erb :'book/new'
 	end
@@ -34,9 +34,9 @@ class BookController < ApplicationController
 
 	get '/books/:id' do
 		authorize
-		@book = Book.find(params[:id])
+		@book = Book.find_by(id: params[:id])
 		if !@book
-			redirect "/books"
+			redirect "/does_not_exist"
 			return
 		end
 		@user = current_user

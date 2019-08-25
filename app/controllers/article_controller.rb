@@ -1,13 +1,13 @@
 class ArticleController < ApplicationController
 
   get '/articles' do
-		authenticate
+		authorize
 		@articles = Article.all
 		erb :'article/index'
 	end
     
   get '/articles/new' do
-    authenticate
+    authorize
     @articles = Article.all
     erb :'article/new'
   end
@@ -36,7 +36,7 @@ class ArticleController < ApplicationController
 		authorize
 		@article = Article.find(params[:id])
 		if !@article
-			redirect "/articles"
+			redirect "/does_not_exist"
 			return
 		end
 		@user = current_user

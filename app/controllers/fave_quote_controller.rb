@@ -27,7 +27,6 @@ class FaveQuoteController < ApplicationController
 
     @fave_quote = FaveQuote.find_by(id: params[:id])
     auth_edit(@fave_quote)
-        # need to sanitize params[:comment][:content] = params[:comment][:content]
     @fave_quote.update(quote: params[:fave_quote][:quote])
       redirect "/#{@quote_path}/#{@quotable_id}"
   end

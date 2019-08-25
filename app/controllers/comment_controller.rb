@@ -38,8 +38,6 @@ class CommentController < ApplicationController
 
     @comment = Comment.find_by(id: params[:id])
     auth_edit(@comment)
-        #need to sanitize
-        # params[:comment][:content] = need params[:comment][:content]
     @comment.update(content: params[:comment][:content])
     redirect "/#{@comment_path}/#{@commentable_id}"
   end

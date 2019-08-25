@@ -1,13 +1,13 @@
 class PodcastController < ApplicationController
 
     get '/podcasts' do
-      authenticate
+      authorize
       @podcasts = Podcast.all
       erb :'podcast/index'
     end
       
     get '/podcasts/new' do
-      authenticate
+      authorize
       @podcasts = Podcast.all
       erb :'podcast/new'
     end
@@ -36,7 +36,7 @@ class PodcastController < ApplicationController
       authorize
       @podcast = Podcast.find(params[:id])
       if !@podcast
-        redirect "/podcasts"
+        redirect "/does_not_exist"
         return
       end
       @user = current_user

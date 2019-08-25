@@ -25,6 +25,10 @@ class ApplicationController < Sinatra::Base
     'Sorry, you are not authorized to edit.'
   end
 
+  get '/does_not_exist' do
+    'Sorry, the item you are looking for does not exist'
+  end
+
   not_found do
     'This is nowhere to be found.'
   end
@@ -60,7 +64,7 @@ class ApplicationController < Sinatra::Base
 
     def auth_edit(item)
       authorize
-      redirect '/access_denied' if !item
+      redirect '/does_not_exist' if !item
       redirect '/access_denied' if item.user_id != current_user.id   
     end
 
