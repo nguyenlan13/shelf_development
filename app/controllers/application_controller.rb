@@ -95,7 +95,58 @@ class ApplicationController < Sinatra::Base
           @quote_path = "articles"
         else
           ""
-        end
       end
+    end
+
+    def rate_path
+      case @ratable_type
+        when "Book"
+          @rate_path = "books"
+        when "Podcast"
+          @rate_path = "podcasts"
+        when "Article"
+          @rate_path = "articles"
+        else
+          ""
+      end
+    end
+
+    def reaction(params:)
+      if params.keys.include?("like")
+        return 0
+      elsif
+        params.keys.include?("love")
+        return 1
+      elsif
+        params.keys.include?("enlightened")
+        return 2
+      elsif
+        params.keys.include?("mind blown")
+        return 3
+      else
+        return nil
+      end
+    end
+
+    def reaction_comment(id:)
+      if (reaction = current_user.reactions.find{|r| r.reactable && r.reactable_type == "Comment" && r.reactable.id == id }) && !reaction.nil?
+          case reaction.reaction_type
+          when 0
+              "like"
+          when 1
+              "love"
+          when 2
+              "enlightnened"
+          when 3
+              "mind blown"
+          end
+      else
+          return nil
+      end
+  end
+
+
+
+
     end
 end

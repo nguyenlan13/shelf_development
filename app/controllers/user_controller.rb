@@ -7,4 +7,9 @@ class UserController < ApplicationController
     erb :'user/home'
   end
 
+  post '/search' do
+    authorize
+    @books = Book.where("title LIKE ?", params[:book_search])
+    erb :'book/index'
+  end
 end
