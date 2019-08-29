@@ -1,5 +1,7 @@
 class ReactionController < ApplicationController
 
+  ##REACTIONS - polymorphic (CAN REACT TO A FAVE QUOTE AND COMMMENTS)
+
 	post '/reactions' do
 		authorize
 		user = current_user

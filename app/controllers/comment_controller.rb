@@ -12,6 +12,8 @@ class CommentController < ApplicationController
     redirect "/#{@comment_path}/#{@commentable_id}"
 	end
 
+  ##COMMENT ON A COMMMENT
+
   # post '/comments/:id/replies' do
   #   authorize
   #   if @comment = Comment.find_by(id: params[:id])
